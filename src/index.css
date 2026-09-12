@@ -1,0 +1,4180 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:opsz,wght@14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Lobster+Two:ital,wght@0,700;1,700&family=Rajdhani:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%; /* #FFFFFF */
+        --foreground: 222.2 47.4% 11.2%; /* #1C1B1E */
+        --muted: 0 0% 70%; /* #B3B3B3 */
+        --muted-foreground: 215.4 16.3% 46.9%; /* #6B7A8F */
+        --popover: 0 0% 100%; /* #FFFFFF */
+        --popover-foreground: 222.2 47.4% 11.2%; /* #1C1B1E */
+        --border: 214.3 31.8% 91.4%; /* #DAE3EC */
+        --input: 214.3 31.8% 91.4%; /* #DAE3EC */
+        --card: 0 0% 100%; /* #FFFFFF */
+        --card-foreground: 222.2 47.4% 11.2%; /* #1C1B1E */
+        --primary: 204 79% 7%; /* #041A1F */
+        --primary-960: 214 99% 33%; /* #0147A5 */
+        --primary-940: 204 79% 7%; /* ##041622 */
+        --primary-foreground: 210 40% 98%; /* #EEF5FB */
+        --secondary: 212 70% 56%; /* #2582C1 */
+        --secondary-950: 210 100% 49%; /* #007BFF */
+        --secondary-foreground: 222.2 47.4% 11.2%; /* #1C1B1E */
+        --green: 189 39% 20%; /* #204A43 */
+        --green-950: 189 95% 23%; /* #006B54 */
+        --green-940: 125 77% 18%; /* #10451E */
+        --green-930: 133 62% 38%; /* #2F5E4D */
+        --light-950: 180 10% 96%; /* #E8EAE9 */
+        --light-900: 0 2% 38%; /* #616161 */
+        --light-850: 0 0% 40%; /* #666666 */
+        --light-830: 0 0% 35%; /* #595959 */
+        --light-810: 0 0% 20%; /* #333333 */
+        --light-790: 0 0% 98%; /* #FAFAFA */
+        --light-800: 218 57% 97%; /* #EEF8FF */
+        --dark-950: 0 0% 5%; /* #0D0D0D */
+        --accent: 210 40% 96.1%; /* #E5F0F8 */
+        --accent-foreground: 222.2 47.4% 11.2%; /* #1C1B1E */
+        --destructive: 0 100% 50%; /* #FF0000 */
+        --destructive-foreground: 210 40% 98%; /* #EEF5FB */
+        --ring: 215 20.2% 65.1%; /* #8EA4C4 */
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: 224 71% 4%;
+        --foreground: 213 31% 91%;
+        --muted: 223 47% 11%;
+        --muted-foreground: 215.4 16.3% 56.9%;
+        --accent: 216 34% 17%;
+        --accent-foreground: 210 40% 98%;
+        --popover: 224 71% 4%;
+        --popover-foreground: 215 20.2% 65.1%;
+        --border: 216 34% 17%;
+        --input: 216 34% 17%;
+        --card: 224 71% 4%;
+        --card-foreground: 213 31% 91%;
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 1.2%;
+        --secondary: 222.2 47.4% 11.2%;
+        --secondary-foreground: 210 40% 98%;
+        --destructive: 0 63% 31%;
+        --destructive-foreground: 210 40% 98%;
+        --ring: 216 34% 17%;
+    }
+}
+
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply font-poppins antialiased bg-background text-foreground;
+    }
+
+    button {
+        @apply outline-none ring-0;
+    }
+}
+
+.custom-select .input-select__control {
+    @apply min-h-full w-full !border-0 p-0 !border-transparent bg-transparent !outline-0 !shadow-none !rounded-none;
+}
+
+.custom-select .input-select__value-container {
+    @apply px-6 py-2;
+}
+
+.custom-card {
+    @apply bg-white border border-light-850/20 rounded-[16px] overflow-hidden;
+}
+
+.table-responsive {
+    @apply overflow-x-auto;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+aside > div::-webkit-scrollbar {
+    width: 4px;
+}
+
+.glass-sidebar {
+    background: radial-gradient(circle at 18% 0%, rgba(37, 130, 193, 0.14), transparent 32%), linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.76));
+    border: 1px solid rgba(255, 255, 255, 0.78);
+    box-shadow:
+        0 24px 50px rgba(4, 26, 31, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(22px) saturate(1.2);
+    -webkit-backdrop-filter: blur(22px) saturate(1.2);
+}
+
+.glass-sidebar .sidebar-header {
+    border-bottom: 1px solid rgba(218, 227, 236, 0.7);
+}
+
+.glass-sidebar .logo-part {
+    min-height: 104px;
+}
+
+.glass-sidebar.glass-sidebar--collapsed .logo-part {
+    min-height: 92px;
+}
+
+.glass-sidebar .sidebar-nav {
+    flex: 1 1 auto;
+    scrollbar-color: rgba(11, 132, 238, 0.32) transparent;
+    scrollbar-width: thin;
+}
+
+.glass-sidebar .sidebar-nav::-webkit-scrollbar {
+    width: 5px;
+}
+
+.glass-sidebar .sidebar-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.glass-sidebar .sidebar-nav::-webkit-scrollbar-thumb {
+    background: rgba(11, 132, 238, 0.28);
+    border-radius: 999px;
+}
+
+.glass-sidebar .sidebar-nav-list {
+    color: #152033;
+    gap: 4px;
+    padding: 0 14px 18px;
+}
+
+.glass-sidebar.glass-sidebar--collapsed .sidebar-nav-list {
+    padding-inline: 10px;
+}
+
+.glass-sidebar .sidebar-nav-item {
+    border-radius: 16px;
+    color: #152033;
+}
+
+.glass-sidebar .sidebar-nav-item::before {
+    display: none;
+}
+
+.glass-sidebar .sidebar-nav-item > a,
+.glass-sidebar .sidebar-nav-item > button {
+    border-radius: 16px;
+    color: inherit;
+    min-height: 50px;
+}
+
+.glass-sidebar .sidebar-nav-title {
+    color: #748198;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.glass-sidebar .sidebar-nav-item:hover,
+.glass-sidebar .sidebar-nav-item.active,
+.glass-sidebar .sidebar-nav-item:has(> a.active),
+.glass-sidebar .sidebar-nav-item:has(> button.active) {
+    background: rgba(238, 241, 255, 0.92);
+    box-shadow: inset 0 0 0 1px rgba(11, 132, 238, 0.18);
+    color: #0b84ee;
+}
+
+.glass-sidebar .sidebar-nav-item:hover > a,
+.glass-sidebar .sidebar-nav-item:hover > button,
+.glass-sidebar .sidebar-nav-item.active > a,
+.glass-sidebar .sidebar-nav-item.active > button,
+.glass-sidebar .sidebar-nav-item > a.active,
+.glass-sidebar .sidebar-nav-item > button.active {
+    color: #0b84ee;
+}
+
+.glass-sidebar .sidebar-nav-item svg {
+    color: currentColor;
+}
+
+.glass-sidebar .sidebar-nav-item .ms-auto {
+    color: #748198;
+    fill: none;
+}
+
+.glass-sidebar .sidebar-nav-item:hover .ms-auto,
+.glass-sidebar .sidebar-nav-item.active .ms-auto,
+.glass-sidebar .sidebar-nav-item:has(> button.active) .ms-auto {
+    color: #0b84ee;
+}
+
+.glass-sidebar .glass-sidebar-profile {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(238, 248, 255, 0.66)), rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(218, 227, 236, 0.78);
+    box-shadow: 0 14px 28px rgba(4, 26, 31, 0.08);
+}
+
+.glass-sidebar .glass-sidebar-profile .user-image {
+    border: 2px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 20px rgba(4, 26, 31, 0.12);
+    overflow: hidden;
+}
+
+.glass-sidebar .glass-sidebar-profile h6 {
+    color: #152033;
+}
+
+.glass-sidebar .glass-sidebar-profile p {
+    color: #64748b;
+}
+
+.admin-dashboard-shell--glass {
+    background: #070b0f;
+}
+
+.admin-dashboard-shell--white {
+    background: #f4f7fb;
+}
+
+.admin-glass-main {
+    background:
+        linear-gradient(126deg, rgba(7, 11, 15, 0.98) 0%, rgba(18, 22, 24, 0.94) 34%, rgba(48, 30, 20, 0.9) 64%, rgba(7, 10, 14, 0.98) 100%),
+        linear-gradient(40deg, rgba(39, 76, 94, 0.42), transparent 38%);
+}
+
+.admin-glass-top-header,
+.admin-glass-page-header {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow:
+        0 18px 48px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(22px) saturate(1.28);
+    -webkit-backdrop-filter: blur(22px) saturate(1.28);
+}
+
+.admin-glass-top-header {
+    position: relative;
+    z-index: 31;
+}
+
+.admin-glass-page-header {
+    position: relative;
+    z-index: 2;
+}
+
+.admin-glass-sidebar {
+    background:
+        linear-gradient(146deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.07)),
+        linear-gradient(210deg, rgba(255, 122, 26, 0.14), transparent 42%),
+        rgba(12, 15, 18, 0.62);
+    border-color: var(--liquid-border-strong);
+    box-shadow:
+        0 26px 60px rgba(0, 0, 0, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    color: var(--liquid-muted);
+}
+
+.admin-white-sidebar {
+    background: #ffffff;
+    border-color: #e4edf8;
+    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.admin-glass-sidebar .sidebar-header {
+    border-bottom-color: var(--liquid-border-strong);
+}
+
+.admin-white-sidebar .sidebar-header {
+    border-bottom-color: #edf2f7;
+}
+
+.admin-glass-sidebar .sidebar-nav-list,
+.admin-glass-sidebar .sidebar-nav-item {
+    color: var(--liquid-muted);
+}
+
+.admin-glass-sidebar .sidebar-nav-title {
+    color: #7d8ea3;
+}
+
+.admin-glass-sidebar .sidebar-nav-item:hover,
+.admin-glass-sidebar .sidebar-nav-item.active,
+.admin-glass-sidebar .sidebar-nav-item:has(> a.active),
+.admin-glass-sidebar .sidebar-nav-item:has(> button.active) {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+    color: var(--liquid-ink);
+}
+
+.admin-glass-sidebar .sidebar-nav-item:hover > a,
+.admin-glass-sidebar .sidebar-nav-item:hover > button,
+.admin-glass-sidebar .sidebar-nav-item.active > a,
+.admin-glass-sidebar .sidebar-nav-item.active > button,
+.admin-glass-sidebar .sidebar-nav-item > a.active,
+.admin-glass-sidebar .sidebar-nav-item > button.active,
+.admin-glass-sidebar .sidebar-nav-item:hover .ms-auto,
+.admin-glass-sidebar .sidebar-nav-item.active .ms-auto,
+.admin-glass-sidebar .sidebar-nav-item:has(> button.active) .ms-auto {
+    color: var(--liquid-ink);
+}
+
+.admin-glass-sidebar .sidebar-nav-item .ms-auto {
+    color: #7d8ea3;
+}
+
+.dashboard-glass-surface {
+    background-color: #070b0f;
+    color: var(--liquid-ink);
+    isolation: isolate;
+    position: relative;
+}
+
+.dashboard-glass-surface::before {
+    background:
+        linear-gradient(140deg, transparent 0 45%, rgba(255, 116, 38, 0.28) 47%, rgba(122, 57, 28, 0.22) 58%, transparent 64%),
+        linear-gradient(36deg, rgba(39, 76, 94, 0.5) 0%, transparent 34%),
+        linear-gradient(122deg, rgba(7, 11, 15, 0.96) 0%, rgba(20, 23, 24, 0.88) 35%, rgba(49, 29, 20, 0.82) 63%, rgba(8, 11, 15, 0.96) 100%);
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: fixed;
+    z-index: 0;
+}
+
+.dashboard-glass-surface::after {
+    background: linear-gradient(138deg, transparent 0 24%, rgba(255, 129, 48, 0.44) 34%, rgba(129, 55, 28, 0.28) 49%, transparent 62%);
+    border-top: 1px solid rgba(255, 195, 146, 0.22);
+    bottom: -28%;
+    content: "";
+    height: 68%;
+    pointer-events: none;
+    position: fixed;
+    right: -12%;
+    transform: rotate(-7deg);
+    width: 78%;
+    z-index: 0;
+}
+
+.dashboard-glass-content {
+    position: relative;
+    z-index: 1;
+}
+
+.dashboard-glass-panel {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.075));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+        0 26px 60px rgba(0, 0, 0, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(22px) saturate(1.35);
+    -webkit-backdrop-filter: blur(22px) saturate(1.35);
+    overflow: hidden;
+    position: relative;
+}
+
+.dashboard-glass-panel::before {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), transparent 45%);
+    content: "";
+    inset: 0;
+    opacity: 0.75;
+    pointer-events: none;
+    position: absolute;
+}
+
+.dashboard-glass-panel > * {
+    position: relative;
+    z-index: 1;
+}
+
+.dashboard-glass-row {
+    background: rgba(255, 255, 255, 0.085);
+    border-color: var(--liquid-border-strong);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.dashboard-glass-row-hover:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: var(--liquid-border-strong);
+}
+
+.group:hover .dashboard-glass-row-hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: var(--liquid-border-strong);
+}
+
+.dpo-registration-form {
+    background: #f8f7fb;
+    border: 1px solid #e7e3ef;
+    border-radius: 8px;
+    color: #38304f;
+    overflow: hidden;
+}
+
+.dpo-registration-form__body {
+    padding: 32px 40px 40px;
+}
+
+.dpo-registration-form__title label,
+.dpo-registration-section-title label {
+    color: #30264d;
+    display: block;
+    font-family: Inter, serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.25;
+    margin-bottom: 0;
+    text-transform: none;
+}
+
+.dpo-registration-form__title,
+.dpo-registration-section-title {
+    border-bottom: 1px solid #e7e3ef;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+}
+
+.dpo-registration-section-title {
+    margin-top: 38px;
+}
+
+.dpo-registration-form__title + .dpo-registration-section-title {
+    margin-top: 0;
+}
+
+.dpo-registration-form .form-input-item > label:not(.input-radio):not(.input-upload),
+.dpo-registration-form .dpo-registration-field-label {
+    color: #565266;
+    font-family: Inter, serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    text-transform: none;
+}
+
+.dpo-registration-form .form-input-item > input,
+.dpo-registration-form .form-input-item > textarea,
+.dpo-registration-form .form-input-item > .custom-select,
+.dpo-registration-form .dpo-registration-date-field {
+    background: rgba(255, 255, 255, 0.55);
+    border-color: #e5e1ee;
+    border-radius: 8px;
+    color: #352b52;
+    min-height: 58px;
+    transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        background-color 180ms ease;
+}
+
+.dpo-registration-form .form-input-item > textarea {
+    min-height: 150px;
+}
+
+.dpo-registration-form .form-input-item > input:focus,
+.dpo-registration-form .form-input-item > textarea:focus,
+.dpo-registration-form .dpo-registration-date-field:focus-within,
+.dpo-registration-form .form-input-item > .custom-select:focus-within {
+    background: #ffffff;
+    border-color: #bfb6d2;
+    box-shadow: 0 0 0 3px rgba(48, 38, 77, 0.08);
+}
+
+.dpo-registration-form .form-input-item > input::placeholder,
+.dpo-registration-form .form-input-item > textarea::placeholder,
+.dpo-registration-form .react-datepicker-wrapper input::placeholder,
+.dpo-registration-form .input-select__placeholder {
+    color: #bdb5ca;
+}
+
+.dpo-registration-form .invalid,
+.dpo-registration-form .custom-select.invalid {
+    border-color: #ff3b3b !important;
+    box-shadow: 0 0 0 1px rgba(255, 59, 59, 0.08);
+}
+
+.dpo-registration-form .input-radio {
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid #e5e1ee;
+    border-radius: 8px;
+    color: #565266;
+    font-size: 15px;
+    gap: 12px;
+    min-height: 56px;
+    padding: 12px 16px;
+}
+
+.dpo-registration-form .custom-radio input {
+    background: #ffffff;
+    border-color: #d8d2e4;
+}
+
+.dpo-registration-form .custom-radio-span {
+    background: #08cf56;
+}
+
+.data-breach-reference-form .input-radio,
+.data-breach-reference-form .input-checkbox {
+    background: transparent;
+    border: 0;
+    color: #565266;
+    font-size: 15px;
+    gap: 12px;
+    min-height: auto;
+    padding: 0;
+}
+
+.data-breach-reference-form .custom-radio,
+.data-breach-reference-form .custom-checkbox {
+    flex-shrink: 0;
+    height: 24px;
+    width: 24px;
+}
+
+.data-breach-reference-form .custom-radio input,
+.data-breach-reference-form .custom-checkbox input {
+    background: #ffffff;
+    border-color: #d8d2e4;
+}
+
+.data-breach-reference-form .custom-radio-span {
+    background: hsl(var(--primary));
+}
+
+.data-breach-reference-form .custom-checkbox input {
+    border-radius: 8px;
+}
+
+.data-breach-reference-form .custom-radio input:checked,
+.data-breach-reference-form .custom-checkbox input:checked {
+    background: hsl(var(--primary));
+    border-color: hsl(var(--primary));
+}
+
+.data-breach-reference-form .custom-checkbox svg {
+    height: 18px;
+    width: 18px;
+}
+
+.dpo-registration-upload-tile {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid #e5e1ee;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    min-height: 180px;
+    padding: 16px;
+    position: relative;
+}
+
+.dpo-registration-form .input-upload {
+    background: transparent;
+    border: 0;
+    color: #565266;
+    min-height: 148px;
+    padding: 0;
+}
+
+.dpo-registration-form .input-upload button {
+    background: #30264d;
+    border-radius: 8px;
+}
+
+.dpo-registration-remove-button {
+    background: #ff3b3b;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 1;
+    padding: 8px 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.dpo-registration-form__note {
+    color: #565266;
+    font-family: Inter, serif;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.dpo-registration-form__footer {
+    background: #efedf4;
+    border-top: 1px solid #ded9e8;
+    padding: 40px;
+}
+
+.dpo-registration-submit {
+    background: hsl(var(--primary));
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 16px;
+    min-height: 58px;
+    text-transform: none;
+    width: 100%;
+}
+
+.dpo-registration-submit:hover {
+    background: hsl(var(--primary-940));
+}
+
+@media (max-width: 767px) {
+    .dpo-registration-form__body,
+    .dpo-registration-form__footer {
+        padding: 24px;
+    }
+
+    .dpo-registration-form__title label,
+    .dpo-registration-section-title label {
+        font-size: 22px;
+    }
+}
+
+.dc-registration-form {
+    color: #38304f;
+    font-family: Inter, serif;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 980px;
+}
+
+.dc-registration-form > .custom-card,
+.dc-registration-form--standalone {
+    background: #f8f7fb;
+    border: 1px solid #e7e3ef !important;
+    border-radius: 8px;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+.dc-registration-form > .custom-card {
+    border-top-width: 1px !important;
+    padding: 0 !important;
+}
+
+.dc-registration-form--standalone {
+    padding: 32px 40px 40px;
+}
+
+.dc-registration-form > .custom-card > .card-header {
+    border-bottom: 1px solid #e7e3ef;
+    margin-bottom: 28px;
+    padding: 32px 40px 18px;
+}
+
+.dc-registration-form > .custom-card > .card-header h2 {
+    color: #30264d;
+    font-family: Inter, serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.25;
+    text-transform: none;
+}
+
+.dc-registration-form > .custom-card > .card-body {
+    padding: 0 40px 40px;
+}
+
+.dc-registration-form > .custom-card > .card-body > p.text-red-600,
+.dc-registration-form--standalone > p.text-red-600 {
+    background: #fff7f7;
+    border-color: #ffd8d8;
+    border-radius: 8px;
+    color: #8f2424;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.dc-registration-form div[class~="bg-primary"][class~="text-white"] {
+    background: transparent;
+    border-bottom: 1px solid #e7e3ef;
+    border-radius: 0;
+    color: #30264d;
+    margin-bottom: 28px;
+    margin-top: 38px;
+    padding: 0 0 18px;
+    text-align: left;
+}
+
+.dc-registration-form div[class~="bg-primary"][class~="text-white"] label {
+    color: #30264d;
+    display: block;
+    font-family: Inter, serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.25;
+    text-transform: none;
+}
+
+.dc-registration-form .form-input-item > label:not(.input-radio):not(.input-checkbox):not(.input-upload),
+.dc-registration-form > .custom-card > .card-body > .font-medium > label,
+.dc-registration-form--standalone > .font-medium > label {
+    color: #565266;
+    font-family: Inter, serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    text-transform: none;
+}
+
+.dc-registration-form .form-input-item > input,
+.dc-registration-form .form-input-item > textarea,
+.dc-registration-form .form-input-item > .custom-select,
+.dc-registration-form .form-input-item > div[class*="border-dark-950"] {
+    background: rgba(255, 255, 255, 0.62);
+    border-color: #e5e1ee;
+    border-radius: 8px;
+    color: #352b52;
+    min-height: 58px;
+    transition:
+        background-color 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.dc-registration-form .form-input-item > textarea {
+    min-height: 150px;
+}
+
+.dc-registration-form .form-input-item > input:focus,
+.dc-registration-form .form-input-item > textarea:focus,
+.dc-registration-form .form-input-item > .custom-select:focus-within,
+.dc-registration-form .form-input-item > div[class*="border-dark-950"]:focus-within {
+    background: #ffffff;
+    border-color: #bfb6d2;
+    box-shadow: 0 0 0 3px rgba(48, 38, 77, 0.08);
+}
+
+.dc-registration-form .form-input-item > input::placeholder,
+.dc-registration-form .form-input-item > textarea::placeholder,
+.dc-registration-form .react-datepicker-wrapper input::placeholder,
+.dc-registration-form .input-select__placeholder {
+    color: #bdb5ca;
+}
+
+.dc-registration-form .invalid,
+.dc-registration-form .custom-select.invalid {
+    border-color: #ff3b3b !important;
+    box-shadow: 0 0 0 1px rgba(255, 59, 59, 0.08);
+}
+
+.dc-registration-form .input-radio,
+.dc-registration-form .input-checkbox {
+    background: rgba(255, 255, 255, 0.62);
+    border: 1px solid #e5e1ee;
+    border-radius: 8px;
+    color: #565266;
+    font-size: 15px;
+    gap: 12px;
+    min-height: 56px;
+    padding: 12px 16px;
+}
+
+.dc-registration-form .custom-radio,
+.dc-registration-form .custom-checkbox {
+    flex-shrink: 0;
+}
+
+.dc-registration-form .custom-radio input,
+.dc-registration-form .custom-checkbox input {
+    background: #ffffff;
+    border-color: #d8d2e4;
+}
+
+.dc-registration-form .custom-checkbox input {
+    border-radius: 8px;
+}
+
+.dc-registration-form .custom-radio-span,
+.dc-registration-form .custom-checkbox input:checked {
+    background: hsl(var(--primary));
+    border-color: hsl(var(--primary));
+}
+
+.dc-registration-form .input-upload {
+    background: transparent;
+    border: 0;
+    color: #565266;
+    min-height: 148px;
+    padding: 0;
+}
+
+.dc-registration-form .input-upload button {
+    background: #30264d;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+.dc-registration-form div[class*="w-[160px]"][class*="h-[160px]"] {
+    background: rgba(255, 255, 255, 0.62);
+    border: 1px dashed #d8d2e4;
+    border-radius: 8px;
+    box-shadow: none;
+    min-height: 180px;
+    padding: 16px;
+    width: 100%;
+}
+
+.dc-registration-form div[class*="w-[160px]"][class*="h-[160px]"] > button {
+    background: #ff3b3b;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 1;
+    padding: 8px 10px;
+    right: 10px;
+    top: 10px;
+}
+
+.dc-registration-form > .custom-card > .card-body div[class~="border"][class~="p-2"][class~="rounded-md"],
+.dc-registration-form--standalone div[class~="border"][class~="p-2"][class~="rounded-md"],
+.dc-registration-form > .custom-card > .card-body div[class~="flex"][class~="items-center"][class~="gap-6"][class~="border"],
+.dc-registration-form--standalone div[class~="flex"][class~="items-center"][class~="gap-6"][class~="border"] {
+    background: rgba(255, 255, 255, 0.42);
+    border-color: #e5e1ee;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    padding: 16px;
+}
+
+.dc-registration-form > .custom-card > .card-body div[class~="flex"][class~="items-center"][class~="gap-6"],
+.dc-registration-form--standalone div[class~="flex"][class~="items-center"][class~="gap-6"] {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.dc-registration-form > .custom-card > .card-body div[class~="flex"][class~="items-center"][class~="gap-6"] > .form-input-item,
+.dc-registration-form--standalone div[class~="flex"][class~="items-center"][class~="gap-6"] > .form-input-item {
+    flex: 1 1 220px;
+}
+
+.dc-registration-form button[type="button"][class~="bg-blue-500"] {
+    background: #30264d;
+    border-radius: 8px;
+    color: #ffffff;
+    min-width: 110px;
+}
+
+.dc-registration-form button[type="button"][class~="bg-red-500"] {
+    background: #ff3b3b;
+    border-radius: 8px;
+    color: #ffffff;
+    min-width: 110px;
+}
+
+.dc-registration-form button[type="submit"] {
+    background: hsl(var(--primary));
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 16px;
+    min-height: 58px;
+    text-transform: none;
+    width: 100%;
+}
+
+.dc-registration-form button[type="submit"]:hover {
+    background: hsl(var(--primary-940));
+}
+
+.dc-registration-form [class~="border-b"][class~="border-light-850/20"] {
+    border-color: #e7e3ef;
+}
+
+.dc-registration-form table {
+    background: rgba(255, 255, 255, 0.42);
+    border: 1px solid #e5e1ee;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dc-registration-form th,
+.dc-registration-form td {
+    color: #565266;
+}
+
+.complaint-handle-registration-form > label[class~="font-bold"][class~="block"],
+.complaint-handle-registration-form > div > label[class~="font-bold"][class~="block"] {
+    border-bottom: 1px solid #e7e3ef;
+    color: #30264d;
+    display: block;
+    font-family: Inter, serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.3;
+    margin-bottom: 24px;
+    margin-top: 34px;
+    padding-bottom: 14px;
+    text-transform: none;
+}
+
+.complaint-handle-registration-form > div[class~="bg-primary"][class~="text-white"] + label[class~="font-bold"][class~="block"] {
+    margin-top: 0;
+}
+
+.complaint-handle-registration-form p {
+    color: #565266;
+    font-family: Inter, serif;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+@media (max-width: 767px) {
+    .dc-registration-form > .custom-card > .card-header,
+    .dc-registration-form > .custom-card > .card-body,
+    .dc-registration-form--standalone {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .dc-registration-form > .custom-card > .card-header {
+        padding-top: 24px;
+    }
+
+    .dc-registration-form > .custom-card > .card-header h2,
+    .dc-registration-form div[class~="bg-primary"][class~="text-white"] label {
+        font-size: 22px;
+    }
+
+    .complaint-handle-registration-form > label[class~="font-bold"][class~="block"],
+    .complaint-handle-registration-form > div > label[class~="font-bold"][class~="block"] {
+        font-size: 19px;
+    }
+}
+
+.admin-registration-surface {
+    isolation: isolate;
+    position: relative;
+}
+
+.admin-registration-surface--glass {
+    background-color: #070b0f;
+    color: var(--liquid-ink);
+}
+
+.admin-registration-surface--white {
+    background-color: #f4f7fb;
+}
+
+.admin-registration-surface--glass::before {
+    background:
+        linear-gradient(140deg, transparent 0 43%, rgba(255, 116, 38, 0.25) 47%, rgba(122, 57, 28, 0.2) 58%, transparent 64%),
+        linear-gradient(36deg, rgba(39, 76, 94, 0.45) 0%, transparent 34%),
+        linear-gradient(122deg, rgba(7, 11, 15, 0.96) 0%, rgba(20, 23, 24, 0.88) 35%, rgba(49, 29, 20, 0.82) 63%, rgba(8, 11, 15, 0.96) 100%);
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: fixed;
+    z-index: 0;
+}
+
+.admin-registration-surface--glass::after {
+    background: linear-gradient(138deg, transparent 0 24%, rgba(255, 129, 48, 0.34) 34%, rgba(129, 55, 28, 0.22) 49%, transparent 62%);
+    border-top: 1px solid rgba(255, 195, 146, 0.18);
+    bottom: -30%;
+    content: "";
+    height: 68%;
+    pointer-events: none;
+    position: fixed;
+    right: -12%;
+    transform: rotate(-7deg);
+    width: 78%;
+    z-index: 0;
+}
+
+.admin-registration-content {
+    position: relative;
+    z-index: 1;
+}
+
+.admin-registration-surface--glass .search-box .form-input-item > div {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--liquid-border-strong);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 18px 44px rgba(0, 0, 0, 0.18);
+    color: var(--liquid-ink);
+    backdrop-filter: blur(18px) saturate(1.25);
+    -webkit-backdrop-filter: blur(18px) saturate(1.25);
+}
+
+.admin-registration-surface--glass .search-box input,
+.admin-registration-surface--glass .search-box input::placeholder {
+    color: #7d8ea3;
+}
+
+.admin-registration-surface--glass .search-box svg {
+    color: var(--liquid-muted);
+}
+
+.admin-registration-surface--glass div[class~="bg-primary"][class~="inline-flex"] {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 18px 44px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(18px) saturate(1.25);
+    -webkit-backdrop-filter: blur(18px) saturate(1.25);
+}
+
+.admin-registration-surface--glass .table-main {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07));
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    box-shadow:
+        0 26px 60px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    backdrop-filter: blur(22px) saturate(1.3);
+    -webkit-backdrop-filter: blur(22px) saturate(1.3);
+}
+
+.admin-registration-surface--glass .table-responsive {
+    border-radius: 14px 14px 0 0;
+}
+
+.admin-registration-surface--glass .table-main table {
+    color: var(--liquid-ink);
+}
+
+.admin-registration-surface--glass .table-main thead th {
+    background: rgba(3, 18, 24, 0.78) !important;
+    border-color: rgba(103, 196, 255, 0.26) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-registration-surface--glass .table-main tbody tr {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.admin-registration-surface--glass .table-main tbody tr:hover {
+    background: rgba(255, 255, 255, 0.13) !important;
+}
+
+.admin-registration-surface--glass .table-main tbody td {
+    background: transparent !important;
+    border-color: var(--liquid-border-strong) !important;
+    color: var(--liquid-ink);
+}
+
+.admin-registration-surface--glass .table-main .db-table-body-tr td {
+    color: var(--liquid-ink);
+}
+
+.admin-registration-surface--glass .table-main > div[class*="border-t"][class*="bg-white"] {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-registration-surface--glass .table-main nav button {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--liquid-border-strong) !important;
+    color: var(--liquid-muted) !important;
+}
+
+.admin-registration-surface--glass .table-main nav button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.14) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-registration-surface--glass .table-main nav button:disabled {
+    background: rgba(255, 122, 26, 0.7) !important;
+    color: #ffffff !important;
+}
+
+.admin-registration-surface--glass .table-main p.text-sm,
+.admin-registration-surface--glass .table-main .text-gray-700 {
+    color: var(--liquid-muted) !important;
+}
+
+.admin-registration-surface--glass .dpo-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+        0 24px 52px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(22px) saturate(1.3);
+    -webkit-backdrop-filter: blur(22px) saturate(1.3);
+}
+
+.admin-registration-surface--glass .dpo-card label {
+    color: var(--liquid-muted) !important;
+}
+
+.admin-registration-surface--glass .dpo-card p {
+    color: var(--liquid-ink) !important;
+}
+
+.admin-registration-surface--glass .dpo-card .dpo-image {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.admin-registration-surface--glass .dpo-registration-form,
+.admin-registration-surface--glass .dc-registration-form > .custom-card,
+.admin-registration-surface--glass .dc-registration-form--standalone {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07));
+    border-color: var(--liquid-border-strong) !important;
+    box-shadow:
+        0 26px 60px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    color: var(--liquid-ink);
+    backdrop-filter: blur(22px) saturate(1.3);
+    -webkit-backdrop-filter: blur(22px) saturate(1.3);
+}
+
+.admin-registration-surface--glass .dpo-registration-form__title,
+.admin-registration-surface--glass .dpo-registration-section-title,
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-header,
+.admin-registration-surface--glass .dc-registration-form div[class~="bg-primary"][class~="text-white"],
+.admin-registration-surface--glass .complaint-handle-registration-form > label[class~="font-bold"][class~="block"],
+.admin-registration-surface--glass .complaint-handle-registration-form > div > label[class~="font-bold"][class~="block"],
+.admin-registration-surface--glass .dc-registration-form [class~="border-b"][class~="border-light-850/20"] {
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+.admin-registration-surface--glass .dpo-registration-form__title label,
+.admin-registration-surface--glass .dpo-registration-section-title label,
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-header h2,
+.admin-registration-surface--glass .dc-registration-form div[class~="bg-primary"][class~="text-white"] label,
+.admin-registration-surface--glass .complaint-handle-registration-form > label[class~="font-bold"][class~="block"],
+.admin-registration-surface--glass .complaint-handle-registration-form > div > label[class~="font-bold"][class~="block"] {
+    color: #ffffff;
+}
+
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > label:not(.input-radio):not(.input-upload),
+.admin-registration-surface--glass .dpo-registration-form .dpo-registration-field-label,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > label:not(.input-radio):not(.input-checkbox):not(.input-upload),
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-body > .font-medium > label,
+.admin-registration-surface--glass .dc-registration-form--standalone > .font-medium > label,
+.admin-registration-surface--glass .dc-registration-form label,
+.admin-registration-surface--glass .complaint-handle-registration-form p {
+    color: var(--liquid-muted);
+}
+
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > input,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > textarea,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > .custom-select,
+.admin-registration-surface--glass .dpo-registration-form .dpo-registration-date-field,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > input,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > textarea,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > .custom-select,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > div[class*="border-dark-950"],
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-body div[class~="border"][class~="p-2"][class~="rounded-md"],
+.admin-registration-surface--glass .dc-registration-form--standalone div[class~="border"][class~="p-2"][class~="rounded-md"],
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-body div[class~="flex"][class~="items-center"][class~="gap-6"][class~="border"],
+.admin-registration-surface--glass .dc-registration-form--standalone div[class~="flex"][class~="items-center"][class~="gap-6"][class~="border"] {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: var(--liquid-border-strong);
+    color: var(--liquid-ink);
+}
+
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > input:focus,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > textarea:focus,
+.admin-registration-surface--glass .dpo-registration-form .dpo-registration-date-field:focus-within,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > .custom-select:focus-within,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > input:focus,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > textarea:focus,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > .custom-select:focus-within,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > div[class*="border-dark-950"]:focus-within {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(103, 196, 255, 0.48);
+    box-shadow: 0 0 0 3px rgba(103, 196, 255, 0.1);
+}
+
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > input::placeholder,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > textarea::placeholder,
+.admin-registration-surface--glass .dpo-registration-form .react-datepicker-wrapper input::placeholder,
+.admin-registration-surface--glass .dpo-registration-form .input-select__placeholder,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > input::placeholder,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > textarea::placeholder,
+.admin-registration-surface--glass .dc-registration-form .react-datepicker-wrapper input::placeholder,
+.admin-registration-surface--glass .dc-registration-form .input-select__placeholder {
+    color: #7d8ea3;
+}
+
+.admin-registration-surface--glass .dpo-registration-form .input-radio,
+.admin-registration-surface--glass .dpo-registration-form .input-checkbox,
+.admin-registration-surface--glass .dc-registration-form .input-radio,
+.admin-registration-surface--glass .dc-registration-form .input-checkbox {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: var(--liquid-border-strong);
+    color: var(--liquid-muted);
+}
+
+.admin-registration-surface--glass .dpo-registration-form .custom-radio input,
+.admin-registration-surface--glass .dpo-registration-form .custom-checkbox input,
+.admin-registration-surface--glass .dc-registration-form .custom-radio input,
+.admin-registration-surface--glass .dc-registration-form .custom-checkbox input {
+    background: rgba(255, 255, 255, 0.13);
+    border-color: var(--liquid-border-strong);
+}
+
+.admin-registration-surface--glass .dpo-registration-form .custom-radio-span,
+.admin-registration-surface--glass .dpo-registration-form .custom-checkbox input:checked,
+.admin-registration-surface--glass .dc-registration-form .custom-radio-span,
+.admin-registration-surface--glass .dc-registration-form .custom-checkbox input:checked {
+    background: #ff7a1a;
+    border-color: #ffb25c;
+}
+
+.admin-registration-surface--glass .dpo-registration-form .input-upload,
+.admin-registration-surface--glass .dc-registration-form .input-upload {
+    color: var(--liquid-muted);
+}
+
+.admin-registration-surface--glass .dc-registration-form div[class*="w-[160px]"][class*="h-[160px]"] {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: var(--liquid-border-strong);
+}
+
+.admin-registration-surface--glass .dpo-registration-form__note,
+.admin-registration-surface--glass .dc-registration-form p,
+.admin-registration-surface--glass .dc-registration-form th,
+.admin-registration-surface--glass .dc-registration-form td {
+    color: var(--liquid-muted);
+}
+
+.admin-registration-surface--glass .dc-registration-form table {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--liquid-border-strong);
+}
+
+.admin-registration-surface--glass .custom-select .input-select__single-value,
+.admin-registration-surface--glass .custom-select .input-select__input-container,
+.admin-registration-surface--glass .custom-select .input-select__menu {
+    color: var(--liquid-ink);
+}
+
+.admin-registration-surface--glass .custom-select .input-select__menu {
+    background: rgba(20, 25, 29, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.26);
+}
+
+.admin-registration-surface--glass .custom-select .input-select__option {
+    background: transparent;
+    color: var(--liquid-ink);
+}
+
+.admin-registration-surface--glass .custom-select .input-select__option--is-focused,
+.admin-registration-surface--glass .custom-select .input-select__option--is-selected {
+    background: rgba(255, 122, 26, 0.28);
+    color: var(--liquid-ink);
+}
+
+.admin-registration-surface--glass .registration-wizard-shell {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+.admin-registration-surface--glass .summary-sidebar .custom-card,
+.admin-registration-surface--glass .dc-registration-form > .custom-card,
+.admin-registration-surface--glass .dc-registration-form--standalone,
+.admin-registration-surface--glass .dpo-registration-form,
+.admin-registration-surface--glass .table-main,
+.admin-registration-surface--glass .dpo-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.055)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow:
+        0 28px 64px rgba(0, 0, 0, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    color: var(--liquid-ink) !important;
+    backdrop-filter: blur(24px) saturate(1.32);
+    -webkit-backdrop-filter: blur(24px) saturate(1.32);
+}
+
+.admin-registration-surface--glass .summary-sidebar .custom-card {
+    border-top-color: rgba(103, 196, 255, 0.42) !important;
+}
+
+.admin-registration-surface--glass .summary-sidebar h3,
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-header h2,
+.admin-registration-surface--glass .dpo-registration-form__title label,
+.admin-registration-surface--glass .dpo-registration-section-title label,
+.admin-registration-surface--glass .dc-registration-form div[class~="bg-primary"][class~="text-white"] label,
+.admin-registration-surface--glass .complaint-handle-registration-form > label[class~="font-bold"][class~="block"],
+.admin-registration-surface--glass .complaint-handle-registration-form > div > label[class~="font-bold"][class~="block"] {
+    color: #ffffff !important;
+    text-shadow: 0 1px 18px rgba(0, 0, 0, 0.22);
+}
+
+.admin-registration-surface--glass .summary-sidebar .custom-card > div,
+.admin-registration-surface--glass .summary-sidebar li,
+.admin-registration-surface--glass .summary-sidebar a,
+.admin-registration-surface--glass .dc-registration-form,
+.admin-registration-surface--glass .dpo-registration-form,
+.admin-registration-surface--glass .dc-registration-form p,
+.admin-registration-surface--glass .dpo-registration-form p,
+.admin-registration-surface--glass .dc-registration-form h3,
+.admin-registration-surface--glass .dpo-registration-form h3,
+.admin-registration-surface--glass .dc-registration-form label,
+.admin-registration-surface--glass .dpo-registration-form label,
+.admin-registration-surface--glass .dc-registration-form span,
+.admin-registration-surface--glass .dpo-registration-form span,
+.admin-registration-surface--glass .table-main,
+.admin-registration-surface--glass .table-main td,
+.admin-registration-surface--glass .table-main p {
+    color: var(--liquid-muted) !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form .text-primary,
+.admin-registration-surface--glass .dc-registration-form .text-dark-950,
+.admin-registration-surface--glass .dc-registration-form .text-heading,
+.admin-registration-surface--glass .dc-registration-form .text-gray-500,
+.admin-registration-surface--glass .dpo-registration-form .text-primary,
+.admin-registration-surface--glass .dpo-registration-form .text-dark-950,
+.admin-registration-surface--glass .dpo-registration-form .text-heading,
+.admin-registration-surface--glass .dpo-registration-form .text-gray-500,
+.admin-registration-surface--glass .summary-sidebar .text-primary,
+.admin-registration-surface--glass .summary-sidebar .text-dark-950,
+.admin-registration-surface--glass .dpo-card .text-primary,
+.admin-registration-surface--glass .dpo-card .text-dark-950 {
+    color: var(--liquid-ink) !important;
+}
+
+.admin-registration-surface--glass .summary-sidebar li {
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-registration-surface--glass .summary-sidebar li:not(.disabled):hover,
+.admin-registration-surface--glass .summary-sidebar li.active {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-left-color: rgba(103, 196, 255, 0.78) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-registration-surface--glass .summary-sidebar li:not(.disabled):hover a,
+.admin-registration-surface--glass .summary-sidebar li.active a {
+    color: var(--liquid-ink) !important;
+}
+
+.admin-registration-surface--glass .summary-sidebar li.disabled {
+    opacity: 0.42;
+}
+
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-header,
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-body,
+.admin-registration-surface--glass .dpo-registration-form__body,
+.admin-registration-surface--glass .dpo-registration-form__footer {
+    background: transparent !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-header,
+.admin-registration-surface--glass .dpo-registration-form__title,
+.admin-registration-surface--glass .dpo-registration-section-title,
+.admin-registration-surface--glass .dc-registration-form div[class~="bg-primary"][class~="text-white"],
+.admin-registration-surface--glass .complaint-handle-registration-form > label[class~="font-bold"][class~="block"],
+.admin-registration-surface--glass .complaint-handle-registration-form > div > label[class~="font-bold"][class~="block"],
+.admin-registration-surface--glass .dpo-registration-form__footer,
+.admin-registration-surface--glass .dc-registration-form [class~="border-b"][class~="border-light-850/20"],
+.admin-registration-surface--glass .dc-registration-form [class~="border-light-850/20"],
+.admin-registration-surface--glass .dpo-registration-form [class~="border-light-850/20"] {
+    border-color: rgba(255, 255, 255, 0.13) !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form .form-input-item > input,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > textarea,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > .custom-select,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > select,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > div[class*="border-dark-950"],
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > input,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > textarea,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > .custom-select,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > select,
+.admin-registration-surface--glass .dpo-registration-form .dpo-registration-date-field,
+.admin-registration-surface--glass .table-main select,
+.admin-registration-surface--glass .search-box .form-input-item > div {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: var(--liquid-border-strong) !important;
+    color: var(--liquid-ink) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form .form-input-item > input:focus,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > textarea:focus,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > .custom-select:focus-within,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > select:focus,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > div[class*="border-dark-950"]:focus-within,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > input:focus,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > textarea:focus,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > .custom-select:focus-within,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > select:focus,
+.admin-registration-surface--glass .dpo-registration-form .dpo-registration-date-field:focus-within {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(103, 196, 255, 0.5) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 0 0 3px rgba(103, 196, 255, 0.1) !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form [class~="bg-white"],
+.admin-registration-surface--glass .dpo-registration-form [class~="bg-white"],
+.admin-registration-surface--glass .summary-sidebar [class~="bg-white"],
+.admin-registration-surface--glass .dpo-card [class~="bg-white"] {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: var(--liquid-border-strong) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+.admin-registration-surface--glass .dpo-card button[class~="bg-white"],
+.admin-registration-surface--glass .dpo-card a[class~="bg-white"] {
+    background: rgba(255, 255, 255, 0.88) !important;
+    color: #061722 !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form .input-upload,
+.admin-registration-surface--glass .dpo-registration-form .input-upload,
+.admin-registration-surface--glass .dc-registration-form div[class*="w-[160px]"][class*="h-[160px]"],
+.admin-registration-surface--glass .dpo-registration-upload-tile,
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-body div[class~="border"][class~="p-2"][class~="rounded-md"],
+.admin-registration-surface--glass .dc-registration-form--standalone div[class~="border"][class~="p-2"][class~="rounded-md"],
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-body div[class~="flex"][class~="items-center"][class~="gap-6"][class~="border"],
+.admin-registration-surface--glass .dc-registration-form--standalone div[class~="flex"][class~="items-center"][class~="gap-6"][class~="border"],
+.admin-registration-surface--glass .dc-registration-form table {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--liquid-border-strong) !important;
+    color: var(--liquid-muted) !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form .input-radio,
+.admin-registration-surface--glass .dc-registration-form .input-checkbox,
+.admin-registration-surface--glass .dpo-registration-form .input-radio,
+.admin-registration-surface--glass .dpo-registration-form .input-checkbox,
+.admin-registration-surface--glass .data-breach-reference-form .input-radio,
+.admin-registration-surface--glass .data-breach-reference-form .input-checkbox {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--liquid-border-strong) !important;
+    color: var(--liquid-muted) !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form .custom-radio input,
+.admin-registration-surface--glass .dc-registration-form .custom-checkbox input,
+.admin-registration-surface--glass .dpo-registration-form .custom-radio input,
+.admin-registration-surface--glass .dpo-registration-form .custom-checkbox input {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form .custom-radio input:checked,
+.admin-registration-surface--glass .dc-registration-form .custom-checkbox input:checked,
+.admin-registration-surface--glass .dpo-registration-form .custom-radio input:checked,
+.admin-registration-surface--glass .dpo-registration-form .custom-checkbox input:checked,
+.admin-registration-surface--glass .dc-registration-form .custom-radio-span,
+.admin-registration-surface--glass .dpo-registration-form .custom-radio-span {
+    background: #ff7a1a !important;
+    border-color: #ffb25c !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-body > p.text-red-600,
+.admin-registration-surface--glass .dc-registration-form--standalone > p.text-red-600,
+.admin-registration-surface--glass .dc-registration-form p[class~="text-red-600"],
+.admin-registration-surface--glass .dpo-registration-form p[class~="text-red-600"] {
+    background: rgba(255, 74, 74, 0.1) !important;
+    border-color: rgba(255, 145, 145, 0.42) !important;
+    color: #ffb4b4 !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form button[type="submit"],
+.admin-registration-surface--glass .dpo-registration-submit,
+.admin-registration-surface--glass .dpo-registration-form button[type="submit"] {
+    background: linear-gradient(135deg, #ff7a1a, #d65e15) !important;
+    box-shadow: 0 14px 28px rgba(255, 122, 26, 0.24) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form button[type="button"][class~="bg-blue-500"],
+.admin-registration-surface--glass .dc-registration-form button[type="button"][class~="bg-red-500"] {
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+.admin-registration-surface--glass div[class~="bg-primary"][class~="inline-flex"] button[class~="bg-white"] {
+    background: rgba(255, 255, 255, 0.88) !important;
+    color: #061722 !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18) !important;
+}
+
+.admin-registration-surface--glass div[class~="bg-primary"][class~="inline-flex"] button:not([class~="bg-white"]) {
+    color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.admin-registration-surface--glass .table-main {
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.admin-registration-surface--glass .table-main thead th {
+    background: rgba(2, 18, 25, 0.8) !important;
+    border-color: rgba(103, 196, 255, 0.24) !important;
+}
+
+.admin-registration-surface--glass .table-main tbody tr,
+.admin-registration-surface--glass .table-main tbody tr[class*="bg-secondary"] {
+    background: rgba(255, 255, 255, 0.065) !important;
+}
+
+.admin-registration-surface--glass .table-main tbody tr:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.admin-registration-surface--glass .table-main tbody td {
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-registration-surface--glass .table-main > div[class*="bg-white"],
+.admin-registration-surface--glass .table-main > div[class*="border-t"] {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-registration-surface--glass .table-main .form-input-item select {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-registration-surface--glass select option {
+    background: #ffffff;
+    color: var(--liquid-ink);
+}
+
+.admin-registration-surface--glass .custom-select .input-select__control,
+.admin-registration-surface--glass .custom-select .input-select__value-container,
+.admin-registration-surface--glass .custom-select .input-select__indicators {
+    background: transparent !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-registration-surface--glass .custom-select .input-select__indicator {
+    color: var(--liquid-muted) !important;
+}
+
+.admin-registration-surface--glass .react-datepicker-wrapper,
+.admin-registration-surface--glass .react-datepicker__input-container {
+    width: 100%;
+}
+
+.admin-registration-surface--glass .react-datepicker-popper,
+.admin-registration-surface--glass .react-datepicker {
+    background: rgba(20, 25, 29, 0.96) !important;
+    border-color: var(--liquid-border-strong) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-registration-surface--glass .react-datepicker__header {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-registration-surface--glass .react-datepicker__current-month,
+.admin-registration-surface--glass .react-datepicker__day-name,
+.admin-registration-surface--glass .react-datepicker__day {
+    color: var(--liquid-ink) !important;
+}
+
+.admin-registration-surface--glass .react-datepicker__day:hover,
+.admin-registration-surface--glass .react-datepicker__day--selected {
+    background: rgba(255, 122, 26, 0.72) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-registration-surface--glass .rpv-default-layout__container,
+.admin-registration-surface--glass .rpv-core__viewer {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-registration-surface--glass .rpv-default-layout__toolbar,
+.admin-registration-surface--glass .rpv-default-layout__sidebar,
+.admin-registration-surface--glass .rpv-default-layout__sidebar-headers,
+.admin-registration-surface--glass .rpv-default-layout__body,
+.admin-registration-surface--glass .rpv-core__inner-pages {
+    background: rgba(9, 17, 22, 0.74) !important;
+}
+
+.admin-registration-surface--glass .rpv-default-layout__toolbar,
+.admin-registration-surface--glass .rpv-default-layout__sidebar {
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-registration-surface--glass .rpv-core__minimal-button,
+.admin-registration-surface--glass .rpv-toolbar__item,
+.admin-registration-surface--glass .rpv-zoom__popover-target,
+.admin-registration-surface--glass .rpv-core__textbox {
+    color: var(--liquid-ink) !important;
+}
+
+.admin-registration-surface--glass .rpv-core__textbox,
+.admin-registration-surface--glass .rpv-core__popover-body {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-registration-surface--glass .rpv-core__inner-page {
+    background: transparent !important;
+}
+
+.admin-registration-surface--glass .rpv-core__page-layer {
+    box-shadow: 0 24px 44px rgba(0, 0, 0, 0.26) !important;
+}
+
+.admin-registration-surface--glass #pdf-container > div,
+.admin-registration-surface--glass .dc-registration-form div[class~="rounded-lg"][class~="border"],
+.admin-registration-surface--glass .dpo-registration-form div[class~="rounded-lg"][class~="border"] {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-entities-surface {
+    isolation: isolate;
+    position: relative;
+}
+
+.admin-entities-surface--glass {
+    background-color: #070b0f;
+    color: var(--liquid-ink);
+}
+
+.admin-entities-surface--white {
+    background-color: #f4f7fb;
+}
+
+.admin-entities-surface--glass::before {
+    background:
+        linear-gradient(140deg, transparent 0 43%, rgba(255, 116, 38, 0.25) 47%, rgba(122, 57, 28, 0.2) 58%, transparent 64%),
+        linear-gradient(36deg, rgba(39, 76, 94, 0.45) 0%, transparent 34%),
+        linear-gradient(122deg, rgba(7, 11, 15, 0.96) 0%, rgba(20, 23, 24, 0.88) 35%, rgba(49, 29, 20, 0.82) 63%, rgba(8, 11, 15, 0.96) 100%);
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: fixed;
+    z-index: 0;
+}
+
+.admin-entities-surface--glass::after {
+    background: linear-gradient(138deg, transparent 0 24%, rgba(255, 129, 48, 0.34) 34%, rgba(129, 55, 28, 0.22) 49%, transparent 62%);
+    border-top: 1px solid rgba(255, 195, 146, 0.18);
+    bottom: -30%;
+    content: "";
+    height: 68%;
+    pointer-events: none;
+    position: fixed;
+    right: -12%;
+    transform: rotate(-7deg);
+    width: 78%;
+    z-index: 0;
+}
+
+.admin-entities-content {
+    position: relative;
+    z-index: 1;
+}
+
+.admin-entities-surface--glass .entity-stat-card,
+.admin-entities-surface--glass .entity-list-card,
+.admin-entities-surface--glass .admin-entities-detail [class~="bg-white"] {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.055)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow:
+        0 28px 64px rgba(0, 0, 0, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    color: var(--liquid-ink) !important;
+    backdrop-filter: blur(24px) saturate(1.32);
+    -webkit-backdrop-filter: blur(24px) saturate(1.32);
+}
+
+.admin-entities-surface--glass .entity-stat-card {
+    min-height: 150px;
+}
+
+.admin-entities-surface--glass .entity-stat-card:nth-child(1) {
+    border-top-color: rgba(126, 184, 255, 0.46) !important;
+}
+
+.admin-entities-surface--glass .entity-stat-card:nth-child(2) {
+    border-top-color: rgba(80, 220, 138, 0.46) !important;
+}
+
+.admin-entities-surface--glass .entity-stat-card:nth-child(3) {
+    border-top-color: rgba(87, 209, 226, 0.46) !important;
+}
+
+.admin-entities-surface--glass .entity-stat-card:nth-child(4) {
+    border-top-color: rgba(255, 145, 91, 0.46) !important;
+}
+
+.admin-entities-surface--glass .entity-stat-card p,
+.admin-entities-surface--glass .entity-list-card p,
+.admin-entities-surface--glass .entity-list-card h5,
+.admin-entities-surface--glass .admin-entities-detail p,
+.admin-entities-surface--glass .admin-entities-detail span,
+.admin-entities-surface--glass .admin-entities-detail div {
+    color: var(--liquid-muted) !important;
+}
+
+.admin-entities-surface--glass .entity-stat-card > p,
+.admin-entities-surface--glass .entity-list-card .card-header h2,
+.admin-entities-surface--glass .entity-list-card .card-header h5,
+.admin-entities-surface--glass .admin-entities-detail h1,
+.admin-entities-surface--glass .admin-entities-detail h2,
+.admin-entities-surface--glass .admin-entities-detail h3 {
+    color: var(--liquid-ink) !important;
+    text-shadow: 0 1px 18px rgba(0, 0, 0, 0.22);
+}
+
+.admin-entities-surface--glass .entity-stat-card h2.text-secondary {
+    color: #7eb8ff !important;
+}
+
+.admin-entities-surface--glass .entity-stat-card h2.text-green-500 {
+    color: #50dc8a !important;
+}
+
+.admin-entities-surface--glass .entity-stat-card h2.text-green-950 {
+    color: #57d1e2 !important;
+}
+
+.admin-entities-surface--glass .entity-stat-card h2.text-primary {
+    color: #ff9a58 !important;
+}
+
+.admin-entities-surface--glass .entity-stat-card .text-primary {
+    color: var(--liquid-ink) !important;
+}
+
+.admin-entities-surface--glass .entity-stat-card .text-red-600 {
+    color: #ff9898 !important;
+}
+
+.admin-entities-surface--glass .entity-list-card {
+    overflow: hidden;
+}
+
+.admin-entities-surface--glass .entity-list-card .card-header {
+    background: rgba(255, 255, 255, 0.055) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13) !important;
+}
+
+.admin-entities-surface--glass .entity-list-card .table-main {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.admin-entities-surface--glass .table-responsive {
+    border-radius: 0;
+}
+
+.admin-entities-surface--glass .table-main table {
+    color: var(--liquid-ink);
+}
+
+.admin-entities-surface--glass .table-main thead th {
+    background: rgba(2, 18, 25, 0.82) !important;
+    border-color: rgba(103, 196, 255, 0.24) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-entities-surface--glass .table-main tbody tr,
+.admin-entities-surface--glass .table-main tbody tr[class*="bg-white"] {
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-entities-surface--glass .table-main tbody tr:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.admin-entities-surface--glass .table-main tbody td {
+    background: transparent !important;
+    border-color: var(--liquid-border-strong) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-entities-surface--glass .table-main .text-primary,
+.admin-entities-surface--glass .table-main .text-gray-700,
+.admin-entities-surface--glass .table-main p {
+    color: var(--liquid-muted) !important;
+}
+
+.admin-entities-surface--glass .table-main > div[class*="bg-white"],
+.admin-entities-surface--glass .table-main > div[class*="border-t"] {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-entities-surface--glass .table-main nav button {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--liquid-border-strong) !important;
+    color: var(--liquid-muted) !important;
+}
+
+.admin-entities-surface--glass .table-main nav button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.14) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-entities-surface--glass .table-main nav button:disabled {
+    background: rgba(255, 122, 26, 0.7) !important;
+    color: #ffffff !important;
+}
+
+.admin-entities-surface--glass .entity-actions button,
+.admin-entities-surface--glass .entity-actions a {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    border-radius: 10px !important;
+    color: var(--liquid-ink) !important;
+    display: inline-flex;
+    height: 36px;
+    justify-content: center;
+    min-width: 36px;
+    padding: 0 !important;
+    text-decoration: none !important;
+    transition:
+        background-color 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease;
+}
+
+.admin-entities-surface--glass .entity-actions button:hover,
+.admin-entities-surface--glass .entity-actions a:hover {
+    background: rgba(255, 255, 255, 0.17) !important;
+    border-color: rgba(103, 196, 255, 0.34) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-entities-surface--glass .admin-entities-detail [class~="bg-gray-50"],
+.admin-entities-surface--glass .admin-entities-detail [class~="hover:shadow-md"] {
+    background: rgba(255, 255, 255, 0.075) !important;
+    border-color: var(--liquid-border-strong) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+.admin-entities-surface--glass .admin-entities-detail [class~="border-gray-100"],
+.admin-entities-surface--glass .admin-entities-detail [class~="border-gray-200"],
+.admin-entities-surface--glass .admin-entities-detail [class~="border-b"] {
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-entities-surface--glass .admin-entities-detail .text-primary,
+.admin-entities-surface--glass .admin-entities-detail .text-secondary,
+.admin-entities-surface--glass .admin-entities-detail .text-dark-950,
+.admin-entities-surface--glass .admin-entities-detail .text-gray-800 {
+    color: var(--liquid-ink) !important;
+}
+
+.admin-entities-surface--glass .admin-entities-detail .text-light-850,
+.admin-entities-surface--glass .admin-entities-detail .text-gray-500 {
+    color: var(--liquid-muted) !important;
+}
+
+.admin-entities-surface--glass .admin-entities-detail .uppercase {
+    color: var(--liquid-muted) !important;
+    letter-spacing: 0.04em;
+}
+
+.admin-entities-surface--glass .admin-entities-detail img {
+    filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.24));
+}
+
+.admin-entities-surface--glass .admin-entities-detail button {
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+
+.admin-entities-surface--glass .admin-entities-detail button:not([class*="bg-green"]):not([class*="bg-red"]) {
+    background: linear-gradient(135deg, #ff7a1a, #d65e15) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-entities-surface--glass .admin-entities-detail button[class*="bg-green"] {
+    background: rgba(34, 197, 94, 0.78) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-entities-surface--glass .admin-entities-detail button[class*="bg-red"] {
+    background: rgba(220, 38, 38, 0.78) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-dashboard-shell--glass {
+    --admin-glass-text: rgba(255, 255, 255, 0.88);
+    --admin-glass-muted: rgba(255, 255, 255, 0.66);
+    --admin-glass-soft: rgba(255, 255, 255, 0.1);
+    --admin-glass-panel: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.065));
+    --admin-glass-border: rgba(255, 255, 255, 0.18);
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) {
+    background-color: #070b0f !important;
+    background-image:
+        linear-gradient(140deg, transparent 0 43%, rgba(255, 116, 38, 0.23) 47%, rgba(122, 57, 28, 0.18) 58%, transparent 64%),
+        linear-gradient(36deg, rgba(39, 76, 94, 0.42) 0%, transparent 34%),
+        linear-gradient(122deg, rgba(7, 11, 15, 0.97) 0%, rgba(20, 23, 24, 0.9) 35%, rgba(49, 29, 20, 0.84) 63%, rgba(8, 11, 15, 0.97) 100%) !important;
+    color: var(--admin-glass-text);
+    isolation: isolate;
+    position: relative;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) > * {
+    position: relative;
+    z-index: 1;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .custom-card,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .db-card,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .achievement-card,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .organisation-widget,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .protection-widget,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .qualification-widget,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .dpo-profile-info,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .dpo-right-part > .mb-10,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) div[class*="bg-white"][class*="rounded"][class*="border"] {
+    background: var(--admin-glass-panel) !important;
+    border-color: var(--admin-glass-border) !important;
+    box-shadow:
+        0 28px 64px rgba(0, 0, 0, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    color: var(--admin-glass-text) !important;
+    backdrop-filter: blur(24px) saturate(1.32);
+    -webkit-backdrop-filter: blur(24px) saturate(1.32);
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .card-header,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .card-body,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .user-list-wrap {
+    background: transparent !important;
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) h1,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) h2,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) h3,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) h4,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) h5,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) h6,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-primary,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-dark-950,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-light-810 {
+    color: var(--liquid-ink) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) p,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) li,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) td,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-light-850,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-light-830,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-gray-500,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-gray-700,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-muted {
+    color: var(--admin-glass-muted) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-secondary {
+    color: #7eb8ff !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-green-500 {
+    color: #50dc8a !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-green-950 {
+    color: #57d1e2 !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .search-box .form-input-item > div,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .form-input-item > input,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .form-input-item > textarea,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .form-input-item > .custom-select,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .form-input-item > label.input-upload,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .form-input-item > div[class*="border-dark-950"],
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) button[class*="bg-white"],
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) button[class*="border-light-850"] {
+    background: var(--admin-glass-soft) !important;
+    border-color: var(--liquid-border-strong) !important;
+    color: var(--admin-glass-text) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 18px 44px rgba(0, 0, 0, 0.18) !important;
+    backdrop-filter: blur(18px) saturate(1.25);
+    -webkit-backdrop-filter: blur(18px) saturate(1.25);
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) input,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) textarea,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) select,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .input-select__single-value,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .input-select__input-container {
+    color: var(--admin-glass-text) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) input::placeholder,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) textarea::placeholder,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .input-select__placeholder {
+    color: #7d8ea3 !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .form-input-item > div:focus-within,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .form-input-item > input:focus,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .form-input-item > textarea:focus,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .form-input-item > .custom-select:focus-within {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(103, 196, 255, 0.5) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 0 0 3px rgba(103, 196, 255, 0.1) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .custom-select .input-select__control,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .custom-select .input-select__value-container,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .custom-select .input-select__indicators {
+    background: transparent !important;
+    color: var(--admin-glass-text) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .custom-select .input-select__indicator {
+    color: var(--admin-glass-muted) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .custom-select .input-select__menu,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) [role="listbox"] {
+    background: rgba(20, 25, 29, 0.96) !important;
+    border-color: var(--liquid-border-strong) !important;
+    color: var(--admin-glass-text) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main {
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-responsive {
+    border-radius: 14px 14px 0 0;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main thead th {
+    background: rgba(2, 18, 25, 0.82) !important;
+    border-color: rgba(103, 196, 255, 0.24) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main tbody tr,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main tbody tr[class*="bg-white"],
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main tbody tr[class*="bg-secondary"] {
+    background: rgba(255, 255, 255, 0.065) !important;
+    color: var(--admin-glass-text) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main tbody tr:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main tbody td {
+    background: transparent !important;
+    border-color: var(--liquid-border-strong) !important;
+    color: var(--admin-glass-text) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main > div[class*="bg-white"],
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main > div[class*="border-t"] {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main nav button {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--liquid-border-strong) !important;
+    color: var(--admin-glass-muted) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main nav button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.14) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main nav button:disabled {
+    background: rgba(255, 122, 26, 0.72) !important;
+    color: #ffffff !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .bg-primary:not(th),
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .bg-secondary:not(th) {
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .divide-y,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) [class*="border-light"],
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) [class*="border-gray"],
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) [class*="border-b"] {
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .apexcharts-text,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .apexcharts-legend-text {
+    color: var(--admin-glass-muted) !important;
+    fill: var(--admin-glass-muted) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .apexcharts-gridline {
+    stroke: rgba(255, 255, 255, 0.12) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .certificate-part > div {
+    color: #111827 !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .certificate-part [class*="text-[#9C9483]"] {
+    color: #9c9483 !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .certificate-part .text-black {
+    color: #000000 !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .certificate-part .text-primary {
+    color: hsl(var(--primary)) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .certificate-part .text-primary-960 {
+    color: hsl(var(--primary-960)) !important;
+}
+
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .certificate-part h1:not(.text-black):not(.text-primary):not(.text-primary-960),
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .certificate-part h2:not(.text-black):not(.text-primary):not(.text-primary-960),
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .certificate-part h3:not(.text-black):not(.text-primary):not(.text-primary-960),
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .certificate-part h4:not(.text-black):not(.text-primary):not(.text-primary-960),
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .certificate-part h5:not(.text-black):not(.text-primary):not(.text-primary-960),
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .certificate-part h6:not(.text-black):not(.text-primary):not(.text-primary-960),
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .certificate-part p,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .certificate-part span,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .certificate-part strong {
+    color: inherit !important;
+}
+
+/* Liquid Glass refresh */
+:root {
+    --liquid-page: #eef6fb;
+    --liquid-page-2: #f8fbff;
+    --liquid-ink: #102033;
+    --liquid-heading: #061923;
+    --liquid-muted: #617087;
+    --liquid-border: rgba(255, 255, 255, 0.72);
+    --liquid-border-strong: rgba(143, 180, 214, 0.34);
+    --liquid-panel: linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.42));
+    --liquid-panel-strong: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.58));
+    --liquid-panel-tint: linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(232, 246, 255, 0.48));
+    --liquid-blue: #0b84ee;
+    --liquid-teal: #08a8a0;
+    --liquid-mint: #21c27a;
+    --liquid-rose: #e85d75;
+    --liquid-amber: #f59b32;
+    --liquid-shadow: 0 20px 58px rgba(40, 72, 104, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+    --liquid-shadow-soft: 0 12px 34px rgba(40, 72, 104, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+body {
+    background:
+        linear-gradient(125deg, rgba(236, 248, 255, 0.96), rgba(250, 252, 255, 0.94) 42%, rgba(242, 250, 247, 0.96)),
+        var(--liquid-page);
+    color: var(--liquid-ink);
+}
+
+.admin-dashboard-shell--glass,
+.front-liquid-shell,
+.public-liquid-shell,
+.auth-liquid-shell {
+    background:
+        linear-gradient(125deg, rgba(236, 248, 255, 0.96), rgba(250, 252, 255, 0.94) 42%, rgba(242, 250, 247, 0.96)),
+        var(--liquid-page) !important;
+    color: var(--liquid-ink);
+    isolation: isolate;
+    overflow: hidden;
+    position: relative;
+}
+
+.front-liquid-shell,
+.public-liquid-shell,
+.auth-liquid-shell {
+    min-height: 100vh;
+}
+
+.admin-dashboard-shell--glass::before,
+.front-liquid-shell::before,
+.public-liquid-shell::before,
+.auth-liquid-shell::before {
+    background:
+        linear-gradient(112deg, rgba(11, 132, 238, 0.18), transparent 28%),
+        linear-gradient(156deg, transparent 45%, rgba(8, 168, 160, 0.18) 62%, transparent 82%),
+        linear-gradient(35deg, rgba(232, 93, 117, 0.12), transparent 34%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0));
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: fixed;
+    z-index: 0;
+}
+
+.admin-dashboard-shell--glass::after,
+.front-liquid-shell::after,
+.public-liquid-shell::after,
+.auth-liquid-shell::after {
+    background:
+        linear-gradient(118deg, transparent 0 20%, rgba(255, 255, 255, 0.54) 30%, rgba(143, 211, 255, 0.17) 46%, transparent 62%),
+        linear-gradient(45deg, transparent 18%, rgba(245, 155, 50, 0.11) 46%, transparent 76%);
+    content: "";
+    height: 58%;
+    pointer-events: none;
+    position: fixed;
+    right: -18%;
+    top: 12%;
+    transform: rotate(-10deg);
+    width: 78%;
+    z-index: 0;
+}
+
+.admin-dashboard-shell--glass > *,
+.front-liquid-shell > *,
+.public-liquid-shell > *,
+.auth-liquid-shell > * {
+    position: relative;
+    z-index: 1;
+}
+
+.admin-dashboard-shell--glass {
+    --admin-glass-text: var(--liquid-ink);
+    --admin-glass-muted: var(--liquid-muted);
+    --admin-glass-soft: rgba(255, 255, 255, 0.48);
+    --admin-glass-panel: var(--liquid-panel);
+    --admin-glass-border: var(--liquid-border-strong);
+}
+
+.admin-glass-main,
+.dashboard-glass-surface,
+.admin-registration-surface--glass,
+.admin-entities-surface--glass,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    color: var(--liquid-ink) !important;
+}
+
+.dashboard-glass-surface::before,
+.dashboard-glass-surface::after,
+.admin-registration-surface--glass::before,
+.admin-registration-surface--glass::after,
+.admin-entities-surface--glass::before,
+.admin-entities-surface--glass::after {
+    display: none !important;
+}
+
+.admin-glass-top-header,
+.admin-glass-page-header,
+.front-glass-header,
+.public-glass-header {
+    background: var(--liquid-panel-strong) !important;
+    border-color: var(--liquid-border-strong) !important;
+    box-shadow: var(--liquid-shadow-soft) !important;
+    color: var(--liquid-ink) !important;
+    backdrop-filter: blur(30px) saturate(1.55);
+    -webkit-backdrop-filter: blur(30px) saturate(1.55);
+}
+
+.front-glass-header,
+.public-glass-header {
+    border-bottom: 1px solid var(--liquid-border-strong);
+    position: relative;
+    z-index: 30;
+}
+
+.admin-glass-top-header [class*="text-white"],
+.admin-glass-page-header [class*="text-white"],
+.front-glass-header [class*="text-primary"],
+.front-glass-header h2,
+.public-glass-header a {
+    color: var(--liquid-heading) !important;
+}
+
+.admin-glass-top-header [class*="bg-white/10"],
+.admin-glass-page-header [class*="bg-white/10"] {
+    background: rgba(255, 255, 255, 0.48) !important;
+    border-color: rgba(143, 180, 214, 0.28) !important;
+}
+
+.admin-glass-top-header button[class*="bg-white/18"],
+.admin-glass-page-header button[class*="bg-white/18"],
+.admin-glass-top-header [class*="bg-white/18"],
+.admin-glass-page-header [class*="bg-white/18"] {
+    background: rgba(255, 255, 255, 0.78) !important;
+    box-shadow: 0 10px 24px rgba(45, 82, 118, 0.12) !important;
+    color: var(--liquid-heading) !important;
+}
+
+.admin-glass-sidebar,
+.front-liquid-shell .glass-sidebar {
+    background: var(--liquid-panel-tint) !important;
+    border: 1px solid var(--liquid-border) !important;
+    box-shadow: var(--liquid-shadow) !important;
+    color: var(--liquid-ink) !important;
+    backdrop-filter: blur(32px) saturate(1.58);
+    -webkit-backdrop-filter: blur(32px) saturate(1.58);
+}
+
+.admin-glass-sidebar .sidebar-header,
+.front-liquid-shell .glass-sidebar .sidebar-header {
+    border-bottom-color: rgba(143, 180, 214, 0.28) !important;
+}
+
+.admin-glass-sidebar .sidebar-nav-list,
+.admin-glass-sidebar .sidebar-nav-item,
+.front-liquid-shell .glass-sidebar .sidebar-nav-list,
+.front-liquid-shell .glass-sidebar .sidebar-nav-item {
+    color: var(--liquid-ink) !important;
+}
+
+.admin-glass-sidebar .sidebar-nav-title,
+.front-liquid-shell .glass-sidebar .sidebar-nav-title {
+    color: var(--liquid-muted) !important;
+}
+
+.admin-glass-sidebar .sidebar-nav-item:hover,
+.admin-glass-sidebar .sidebar-nav-item.active,
+.admin-glass-sidebar .sidebar-nav-item:has(> a.active),
+.admin-glass-sidebar .sidebar-nav-item:has(> button.active),
+.front-liquid-shell .glass-sidebar .sidebar-nav-item:hover,
+.front-liquid-shell .glass-sidebar .sidebar-nav-item.active,
+.front-liquid-shell .glass-sidebar .sidebar-nav-item:has(> a.active),
+.front-liquid-shell .glass-sidebar .sidebar-nav-item:has(> button.active) {
+    background: rgba(255, 255, 255, 0.7) !important;
+    box-shadow:
+        0 10px 24px rgba(45, 82, 118, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    color: var(--liquid-blue) !important;
+}
+
+.admin-glass-sidebar .sidebar-nav-item:hover > a,
+.admin-glass-sidebar .sidebar-nav-item:hover > button,
+.admin-glass-sidebar .sidebar-nav-item.active > a,
+.admin-glass-sidebar .sidebar-nav-item.active > button,
+.admin-glass-sidebar .sidebar-nav-item > a.active,
+.admin-glass-sidebar .sidebar-nav-item > button.active,
+.front-liquid-shell .glass-sidebar .sidebar-nav-item:hover > a,
+.front-liquid-shell .glass-sidebar .sidebar-nav-item:hover > button,
+.front-liquid-shell .glass-sidebar .sidebar-nav-item.active > a,
+.front-liquid-shell .glass-sidebar .sidebar-nav-item.active > button,
+.front-liquid-shell .glass-sidebar .sidebar-nav-item > a.active,
+.front-liquid-shell .glass-sidebar .sidebar-nav-item > button.active {
+    color: var(--liquid-blue) !important;
+}
+
+.admin-glass-sidebar .sidebar-nav-item .ms-auto,
+.front-liquid-shell .glass-sidebar .sidebar-nav-item .ms-auto {
+    color: rgba(16, 32, 51, 0.48) !important;
+}
+
+.glass-sidebar .glass-sidebar-profile,
+.front-liquid-shell .glass-sidebar .glass-sidebar-profile {
+    background: rgba(255, 255, 255, 0.56) !important;
+    border: 1px solid rgba(255, 255, 255, 0.72) !important;
+    box-shadow: var(--liquid-shadow-soft) !important;
+}
+
+.glass-sidebar .glass-sidebar-profile h6,
+.glass-sidebar .glass-sidebar-profile p {
+    color: var(--liquid-ink) !important;
+}
+
+.liquid-card,
+.liquid-table,
+.custom-card,
+.db-card,
+.dashboard-glass-panel,
+.table-main,
+.admin-registration-surface--glass .summary-sidebar .custom-card,
+.admin-registration-surface--glass .dc-registration-form > .custom-card,
+.admin-registration-surface--glass .dc-registration-form--standalone,
+.admin-registration-surface--glass .dpo-registration-form,
+.admin-registration-surface--glass .dpo-card,
+.admin-entities-surface--glass .entity-stat-card,
+.admin-entities-surface--glass .entity-list-card,
+.admin-entities-surface--glass .admin-entities-detail [class~="bg-white"],
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .custom-card,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .db-card,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) div[class*="bg-white"][class*="rounded"][class*="border"] {
+    background: var(--liquid-panel) !important;
+    border: 1px solid var(--liquid-border-strong) !important;
+    border-radius: 8px !important;
+    box-shadow: var(--liquid-shadow) !important;
+    color: var(--liquid-ink) !important;
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(28px) saturate(1.48);
+    -webkit-backdrop-filter: blur(28px) saturate(1.48);
+}
+
+.liquid-card::before,
+.liquid-table::before,
+.dashboard-glass-panel::before {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0) 48%),
+        linear-gradient(110deg, transparent 0 28%, rgba(255, 255, 255, 0.28) 42%, transparent 58%);
+    content: "";
+    inset: 0;
+    opacity: 0.84;
+    pointer-events: none;
+    position: absolute;
+}
+
+.liquid-card > *,
+.liquid-table > *,
+.dashboard-glass-panel > * {
+    position: relative;
+    z-index: 1;
+}
+
+.db-card-header,
+.db-card-body,
+.card-header,
+.card-body,
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-header,
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-body,
+.admin-registration-surface--glass .dpo-registration-form__body,
+.admin-registration-surface--glass .dpo-registration-form__footer {
+    background: transparent !important;
+    border-color: rgba(143, 180, 214, 0.28) !important;
+}
+
+.liquid-content-part {
+    background-color: transparent !important;
+}
+
+.front-content-part {
+    color: var(--liquid-ink);
+}
+
+.front-action-card {
+    min-height: 138px;
+    transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        transform 180ms ease;
+}
+
+.front-action-card:hover {
+    border-color: rgba(11, 132, 238, 0.34) !important;
+    box-shadow: 0 24px 64px rgba(40, 72, 104, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    transform: translateY(-2px);
+}
+
+.front-action-card__accent {
+    background: linear-gradient(90deg, var(--liquid-blue), var(--liquid-teal));
+    border-radius: 999px;
+    display: block;
+    height: 4px;
+    margin-bottom: 18px;
+    width: 68px;
+}
+
+.front-action-card__accent.bg-secondary {
+    background: linear-gradient(90deg, var(--liquid-teal), var(--liquid-mint));
+}
+
+.front-action-card__accent.bg-green {
+    background: linear-gradient(90deg, var(--liquid-mint), var(--liquid-amber));
+}
+
+.front-action-card h3,
+.front-action-card p {
+    color: var(--liquid-ink) !important;
+}
+
+.front-action-card p {
+    color: var(--liquid-muted) !important;
+}
+
+.liquid-button {
+    border: 1px solid rgba(255, 255, 255, 0.52) !important;
+    border-radius: 10px !important;
+    box-shadow:
+        0 14px 30px rgba(32, 89, 147, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.48) !important;
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    transition:
+        transform 160ms ease,
+        box-shadow 160ms ease,
+        background 160ms ease,
+        border-color 160ms ease;
+}
+
+.liquid-button:hover {
+    border-color: rgba(255, 255, 255, 0.75) !important;
+    box-shadow:
+        0 18px 38px rgba(32, 89, 147, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.62) !important;
+    transform: translateY(-1px);
+}
+
+.liquid-button--primary,
+.liquid-button.bg-primary {
+    background: linear-gradient(135deg, rgba(11, 132, 238, 0.98), rgba(28, 92, 171, 0.94)) !important;
+    color: #ffffff !important;
+}
+
+.liquid-button--secondary,
+.liquid-button.bg-secondary {
+    background: linear-gradient(135deg, rgba(61, 155, 245, 0.96), rgba(11, 132, 238, 0.92)) !important;
+    color: #ffffff !important;
+}
+
+.liquid-button--outline {
+    background: rgba(255, 255, 255, 0.54) !important;
+    color: var(--liquid-heading) !important;
+}
+
+.liquid-input,
+.form-input-item > input.liquid-input,
+.form-input-item > .liquid-input,
+.form-input-item > textarea,
+.form-input-item > select {
+    background: rgba(255, 255, 255, 0.5) !important;
+    border-color: rgba(143, 180, 214, 0.46) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.74) !important;
+    color: var(--liquid-ink) !important;
+    backdrop-filter: blur(20px) saturate(1.25);
+    -webkit-backdrop-filter: blur(20px) saturate(1.25);
+}
+
+.liquid-input:focus,
+.liquid-input:focus-within,
+.form-input-item > textarea:focus,
+.form-input-item > select:focus {
+    background: rgba(255, 255, 255, 0.72) !important;
+    border-color: rgba(11, 132, 238, 0.54) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.86),
+        0 0 0 3px rgba(11, 132, 238, 0.12) !important;
+}
+
+.liquid-input input,
+.liquid-input textarea,
+.liquid-input select,
+.custom-select .input-select__single-value,
+.custom-select .input-select__input-container,
+.custom-select .input-select__indicator {
+    color: var(--liquid-ink) !important;
+}
+
+.liquid-input input::placeholder,
+.liquid-input textarea::placeholder,
+.form-input-item > input::placeholder,
+.form-input-item > textarea::placeholder,
+.input-select__placeholder {
+    color: rgba(97, 112, 135, 0.72) !important;
+}
+
+.custom-select .input-select__menu,
+[role="listbox"] {
+    background: rgba(255, 255, 255, 0.94) !important;
+    border: 1px solid rgba(143, 180, 214, 0.34) !important;
+    box-shadow: 0 18px 48px rgba(40, 72, 104, 0.18) !important;
+    color: var(--liquid-ink) !important;
+    backdrop-filter: blur(24px) saturate(1.36);
+    -webkit-backdrop-filter: blur(24px) saturate(1.36);
+}
+
+.custom-select .input-select__option {
+    color: var(--liquid-ink) !important;
+}
+
+.custom-select .input-select__option--is-focused,
+.custom-select .input-select__option--is-selected {
+    background: rgba(11, 132, 238, 0.14) !important;
+    color: var(--liquid-heading) !important;
+}
+
+.table-main {
+    border-radius: 8px !important;
+}
+
+.table-main .table-responsive {
+    border-radius: 8px 8px 0 0 !important;
+}
+
+.table-main table {
+    color: var(--liquid-ink) !important;
+}
+
+.table-main thead th,
+.admin-registration-surface--glass .table-main thead th,
+.admin-entities-surface--glass .table-main thead th,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main thead th {
+    background: rgba(255, 255, 255, 0.68) !important;
+    border-color: rgba(143, 180, 214, 0.3) !important;
+    color: var(--liquid-heading) !important;
+}
+
+.table-main tbody tr,
+.table-main tbody tr[class*="bg-white"],
+.table-main tbody tr[class*="bg-secondary"],
+.admin-registration-surface--glass .table-main tbody tr,
+.admin-entities-surface--glass .table-main tbody tr,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main tbody tr {
+    background: rgba(255, 255, 255, 0.28) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.table-main tbody tr:hover,
+.admin-registration-surface--glass .table-main tbody tr:hover,
+.admin-entities-surface--glass .table-main tbody tr:hover,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main tbody tr:hover {
+    background: rgba(255, 255, 255, 0.48) !important;
+}
+
+.table-main tbody td,
+.table-main .db-table-body-tr td,
+.admin-registration-surface--glass .table-main tbody td,
+.admin-entities-surface--glass .table-main tbody td,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main tbody td {
+    background: transparent !important;
+    border-color: rgba(143, 180, 214, 0.24) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.table-main > div[class*="bg-white"],
+.table-main > div[class*="border-t"],
+.admin-registration-surface--glass .table-main > div[class*="bg-white"],
+.admin-registration-surface--glass .table-main > div[class*="border-t"],
+.admin-entities-surface--glass .table-main > div[class*="bg-white"],
+.admin-entities-surface--glass .table-main > div[class*="border-t"],
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main > div[class*="bg-white"],
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main > div[class*="border-t"] {
+    background: rgba(255, 255, 255, 0.42) !important;
+    border-color: rgba(143, 180, 214, 0.26) !important;
+}
+
+.table-main nav button,
+.admin-registration-surface--glass .table-main nav button,
+.admin-entities-surface--glass .table-main nav button,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main nav button {
+    background: rgba(255, 255, 255, 0.58) !important;
+    border-color: rgba(143, 180, 214, 0.3) !important;
+    color: var(--liquid-muted) !important;
+}
+
+.table-main nav button:hover:not(:disabled),
+.admin-registration-surface--glass .table-main nav button:hover:not(:disabled),
+.admin-entities-surface--glass .table-main nav button:hover:not(:disabled),
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main nav button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.86) !important;
+    color: var(--liquid-heading) !important;
+}
+
+.table-main nav button:disabled,
+.admin-registration-surface--glass .table-main nav button:disabled,
+.admin-entities-surface--glass .table-main nav button:disabled,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main nav button:disabled {
+    background: linear-gradient(135deg, rgba(11, 132, 238, 0.94), rgba(28, 92, 171, 0.9)) !important;
+    color: #ffffff !important;
+}
+
+.dashboard-glass-surface h1,
+.dashboard-glass-surface h2,
+.dashboard-glass-surface h3,
+.dashboard-glass-surface h4,
+.dashboard-glass-surface h5,
+.dashboard-glass-surface h6,
+.dashboard-glass-surface .text-white,
+.dashboard-glass-panel h1,
+.dashboard-glass-panel h2,
+.dashboard-glass-panel h3,
+.dashboard-glass-panel h4,
+.dashboard-glass-panel h5,
+.dashboard-glass-panel h6,
+.admin-registration-surface--glass h1,
+.admin-registration-surface--glass h2,
+.admin-registration-surface--glass h3,
+.admin-registration-surface--glass h4,
+.admin-registration-surface--glass h5,
+.admin-registration-surface--glass h6,
+.admin-entities-surface--glass h1,
+.admin-entities-surface--glass h2,
+.admin-entities-surface--glass h3,
+.admin-entities-surface--glass h4,
+.admin-entities-surface--glass h5,
+.admin-entities-surface--glass h6,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) h1,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) h2,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) h3,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) h4,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) h5,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) h6,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-primary,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-dark-950 {
+    color: var(--liquid-heading) !important;
+    text-shadow: none !important;
+}
+
+.dashboard-glass-surface p,
+.dashboard-glass-surface li,
+.dashboard-glass-surface td,
+.dashboard-glass-surface [class*="text-white/"],
+.admin-registration-surface--glass p,
+.admin-registration-surface--glass li,
+.admin-registration-surface--glass td,
+.admin-registration-surface--glass span,
+.admin-registration-surface--glass label,
+.admin-entities-surface--glass p,
+.admin-entities-surface--glass li,
+.admin-entities-surface--glass td,
+.admin-entities-surface--glass span,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) p,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) li,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) td,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-light-850,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-gray-500,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .text-gray-700 {
+    color: var(--liquid-muted) !important;
+}
+
+.dashboard-glass-surface .text-\[\#67c4ff\],
+.admin-dashboard-shell--glass .text-secondary {
+    color: var(--liquid-blue) !important;
+}
+
+.dashboard-glass-surface .text-\[\#ffb25c\] {
+    color: var(--liquid-amber) !important;
+}
+
+.dashboard-glass-surface .text-\[\#66e19b\],
+.admin-dashboard-shell--glass .text-green-500,
+.admin-dashboard-shell--glass .text-green-950 {
+    color: var(--liquid-mint) !important;
+}
+
+.dashboard-glass-surface .text-\[\#b8b0ff\] {
+    color: #0b84ee !important;
+}
+
+.dashboard-glass-surface .text-\[\#ff8b84\] {
+    color: var(--liquid-rose) !important;
+}
+
+.dashboard-glass-row,
+.dashboard-glass-row-hover:hover,
+.group:hover .dashboard-glass-row-hover {
+    background: rgba(255, 255, 255, 0.42) !important;
+    border-color: rgba(143, 180, 214, 0.28) !important;
+}
+
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > input,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > textarea,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > .custom-select,
+.admin-registration-surface--glass .dpo-registration-form .dpo-registration-date-field,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > input,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > textarea,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > .custom-select,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > select,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > div[class*="border-dark-950"],
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .search-box .form-input-item > div,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .form-input-item > input,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .form-input-item > textarea,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .form-input-item > .custom-select {
+    background: rgba(255, 255, 255, 0.52) !important;
+    border-color: rgba(143, 180, 214, 0.42) !important;
+    color: var(--liquid-ink) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.74) !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form button[type="submit"],
+.admin-registration-surface--glass .dpo-registration-submit,
+.admin-registration-surface--glass .dpo-registration-form button[type="submit"],
+.admin-entities-surface--glass .admin-entities-detail button:not([class*="bg-green"]):not([class*="bg-red"]) {
+    background: linear-gradient(135deg, rgba(11, 132, 238, 0.98), rgba(28, 92, 171, 0.94)) !important;
+    color: var(--liquid-ink) !important;
+    box-shadow: 0 14px 30px rgba(32, 89, 147, 0.18) !important;
+}
+
+.auth-liquid-shell > .grid {
+    min-height: 100vh;
+}
+
+.auth-liquid-shell .right-part > div {
+    background-color: transparent !important;
+    background-image:
+        linear-gradient(135deg, rgba(6, 25, 35, 0.46), rgba(8, 168, 160, 0.18)),
+        linear-gradient(45deg, rgba(11, 132, 238, 0.28), transparent 48%) !important;
+    background-size: cover !important;
+    position: relative;
+}
+
+.auth-liquid-shell .right-part > div::after {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.04));
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    content: "";
+    inset: 24px;
+    pointer-events: none;
+    position: absolute;
+    backdrop-filter: blur(8px) saturate(1.22);
+    -webkit-backdrop-filter: blur(8px) saturate(1.22);
+}
+
+.auth-liquid-shell .right-part h2 {
+    position: relative;
+    text-shadow: 0 12px 30px rgba(0, 0, 0, 0.34);
+    z-index: 1;
+}
+
+.auth-liquid-shell .left-part {
+    background: var(--liquid-panel-strong);
+    border-left: 1px solid var(--liquid-border-strong);
+    box-shadow: -24px 0 58px rgba(40, 72, 104, 0.12);
+    backdrop-filter: blur(30px) saturate(1.46);
+    -webkit-backdrop-filter: blur(30px) saturate(1.46);
+}
+
+.auth-liquid-shell h1,
+.auth-liquid-shell h3,
+.auth-liquid-shell .text-primary {
+    color: var(--liquid-heading) !important;
+}
+
+.auth-liquid-shell p,
+.auth-liquid-shell .text-light-850 {
+    color: var(--liquid-muted) !important;
+}
+
+.auth-liquid-shell .logo-part img,
+.front-glass-header img,
+.public-glass-header img,
+.glass-sidebar img {
+    filter: drop-shadow(0 12px 18px rgba(40, 72, 104, 0.14));
+}
+
+@media (max-width: 991px) {
+    .auth-liquid-shell .left-part {
+        border-left: 0;
+        box-shadow: none;
+    }
+
+    .auth-liquid-shell .right-part > div::after {
+        inset: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .liquid-button,
+    .front-action-card {
+        transition: none;
+    }
+
+    .liquid-button:hover,
+    .front-action-card:hover {
+        transform: none;
+    }
+}
+
+/* Full Liquid Glass pass: stronger translucency, refraction, and contrast. */
+.admin-dashboard-shell--glass,
+.front-liquid-shell,
+.public-liquid-shell,
+.auth-liquid-shell {
+    --liquid-ink: #071521;
+    --liquid-heading: #03111b;
+    --liquid-muted: #43566f;
+    --liquid-border: rgba(255, 255, 255, 0.76);
+    --liquid-border-strong: rgba(119, 168, 211, 0.42);
+    --liquid-panel: linear-gradient(145deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.16));
+    --liquid-panel-strong: linear-gradient(145deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.22));
+    --liquid-shadow:
+        0 28px 72px rgba(43, 78, 116, 0.2),
+        0 2px 14px rgba(255, 255, 255, 0.42) inset,
+        0 -18px 32px rgba(104, 190, 214, 0.08) inset;
+    background:
+        radial-gradient(circle at 16% 18%, rgba(61, 169, 255, 0.28), transparent 32%),
+        radial-gradient(circle at 80% 22%, rgba(70, 220, 171, 0.22), transparent 31%),
+        radial-gradient(circle at 72% 78%, rgba(255, 183, 79, 0.2), transparent 32%),
+        linear-gradient(125deg, #eaf7ff 0%, #f8fbff 42%, #eaf9f5 100%) !important;
+}
+
+.admin-dashboard-shell--glass::before,
+.front-liquid-shell::before,
+.public-liquid-shell::before,
+.auth-liquid-shell::before {
+    background:
+        linear-gradient(108deg, transparent 0 22%, rgba(255, 255, 255, 0.5) 28%, rgba(123, 209, 255, 0.2) 41%, transparent 54%),
+        linear-gradient(22deg, rgba(9, 132, 227, 0.16), transparent 28%),
+        linear-gradient(155deg, transparent 46%, rgba(19, 196, 161, 0.22) 63%, transparent 84%),
+        radial-gradient(circle at 42% 36%, rgba(255, 255, 255, 0.62), transparent 18%);
+    opacity: 1;
+}
+
+.admin-dashboard-shell--glass::after,
+.front-liquid-shell::after,
+.public-liquid-shell::after,
+.auth-liquid-shell::after {
+    background:
+        linear-gradient(120deg, transparent 0 17%, rgba(255, 255, 255, 0.7) 27%, rgba(82, 177, 255, 0.2) 44%, transparent 61%),
+        linear-gradient(42deg, transparent 12%, rgba(255, 211, 118, 0.2) 46%, transparent 78%);
+    filter: blur(0.5px);
+    opacity: 0.92;
+}
+
+.liquid-content-part,
+.admin-registration-content,
+.dashboard-glass-content,
+.admin-entities-content {
+    isolation: isolate;
+    position: relative;
+}
+
+.liquid-content-part::before,
+.admin-registration-content::before,
+.dashboard-glass-content::before,
+.admin-entities-content::before {
+    background:
+        radial-gradient(circle at 18% 12%, rgba(12, 132, 238, 0.18), transparent 28%),
+        radial-gradient(circle at 86% 4%, rgba(43, 209, 177, 0.14), transparent 30%),
+        linear-gradient(132deg, rgba(255, 255, 255, 0.18), transparent 34%, rgba(255, 255, 255, 0.22) 62%, transparent 82%);
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 0;
+}
+
+.liquid-content-part > *,
+.admin-registration-content > *,
+.dashboard-glass-content > *,
+.admin-entities-content > * {
+    position: relative;
+    z-index: 1;
+}
+
+.admin-glass-top-header,
+.admin-glass-page-header,
+.front-glass-header,
+.public-glass-header,
+.glass-sidebar,
+.admin-glass-sidebar,
+.front-liquid-shell .glass-sidebar {
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.18)),
+        linear-gradient(120deg, rgba(255, 255, 255, 0.48), transparent 38%, rgba(91, 181, 255, 0.08) 62%, transparent 88%) !important;
+    border-color: var(--liquid-border-strong) !important;
+    box-shadow:
+        0 30px 80px rgba(40, 75, 112, 0.22),
+        0 2px 18px rgba(255, 255, 255, 0.5) inset,
+        0 -22px 34px rgba(98, 182, 215, 0.08) inset !important;
+    backdrop-filter: blur(44px) saturate(1.85) brightness(1.05);
+    -webkit-backdrop-filter: blur(44px) saturate(1.85) brightness(1.05);
+}
+
+.glass-sidebar,
+.admin-glass-sidebar {
+    border-radius: 22px !important;
+}
+
+.glass-sidebar::before,
+.admin-glass-sidebar::before,
+.admin-glass-top-header::before,
+.admin-glass-page-header::before,
+.front-glass-header::before,
+.public-glass-header::before,
+.liquid-card::after,
+.liquid-table::after {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.08) 34%, transparent 56%),
+        linear-gradient(305deg, transparent 0 70%, rgba(255, 255, 255, 0.3));
+    content: "";
+    inset: 0;
+    opacity: 0.76;
+    pointer-events: none;
+    position: absolute;
+}
+
+.glass-sidebar > *,
+.admin-glass-sidebar > *,
+.admin-glass-top-header > *,
+.admin-glass-page-header > *,
+.front-glass-header > *,
+.public-glass-header > * {
+    position: relative;
+    z-index: 1;
+}
+
+.liquid-card,
+.liquid-table,
+.custom-card,
+.db-card,
+.table-main,
+.dashboard-glass-panel,
+.dashboard-glass-row,
+.admin-registration-surface--glass .summary-sidebar .custom-card,
+.admin-registration-surface--glass .dc-registration-form > .custom-card,
+.admin-registration-surface--glass .dc-registration-form--standalone,
+.admin-registration-surface--glass .dpo-registration-form,
+.admin-registration-surface--glass .dpo-card,
+.admin-entities-surface--glass .entity-stat-card,
+.admin-entities-surface--glass .entity-list-card,
+.admin-entities-surface--glass .admin-entities-detail [class~="bg-white"],
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .custom-card,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .db-card,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .table-main,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) div[class*="bg-white"][class*="rounded"][class*="border"] {
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.14)),
+        linear-gradient(120deg, rgba(255, 255, 255, 0.42), transparent 42%, rgba(102, 203, 232, 0.08) 72%, transparent 100%) !important;
+    border-color: var(--liquid-border-strong) !important;
+    box-shadow:
+        0 30px 76px rgba(35, 70, 105, 0.22),
+        0 2px 18px rgba(255, 255, 255, 0.56) inset,
+        0 -24px 38px rgba(60, 157, 188, 0.08) inset !important;
+    color: var(--liquid-ink) !important;
+    backdrop-filter: blur(46px) saturate(1.92) brightness(1.04);
+    -webkit-backdrop-filter: blur(46px) saturate(1.92) brightness(1.04);
+}
+
+.admin-dashboard-shell--glass .bg-white,
+.front-liquid-shell .bg-white,
+.public-liquid-shell .bg-white,
+.auth-liquid-shell .bg-white,
+.admin-dashboard-shell--glass [class~="bg-white"],
+.front-liquid-shell [class~="bg-white"],
+.public-liquid-shell [class~="bg-white"],
+.auth-liquid-shell [class~="bg-white"] {
+    background-color: rgba(255, 255, 255, 0.26) !important;
+    backdrop-filter: blur(34px) saturate(1.65);
+    -webkit-backdrop-filter: blur(34px) saturate(1.65);
+}
+
+.admin-registration-surface--glass .registration-wizard-shell {
+    background:
+        radial-gradient(circle at 18% 16%, rgba(37, 143, 238, 0.2), transparent 32%),
+        radial-gradient(circle at 92% 20%, rgba(30, 205, 170, 0.14), transparent 34%),
+        linear-gradient(126deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05)) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.44);
+}
+
+.admin-registration-surface--glass .summary-sidebar .custom-card {
+    min-height: calc(100vh - 260px);
+}
+
+.admin-registration-surface--glass .summary-sidebar h3,
+.admin-registration-surface--glass .summary-sidebar a,
+.admin-registration-surface--glass .summary-sidebar li,
+.admin-registration-surface--glass .dc-registration-form,
+.admin-registration-surface--glass .dc-registration-form h1,
+.admin-registration-surface--glass .dc-registration-form h2,
+.admin-registration-surface--glass .dc-registration-form h3,
+.admin-registration-surface--glass .dc-registration-form h4,
+.admin-registration-surface--glass .dc-registration-form h5,
+.admin-registration-surface--glass .dc-registration-form h6,
+.admin-registration-surface--glass .dc-registration-form label,
+.admin-registration-surface--glass .dc-registration-form span,
+.admin-registration-surface--glass .dpo-registration-form,
+.admin-registration-surface--glass .dpo-registration-form h1,
+.admin-registration-surface--glass .dpo-registration-form h2,
+.admin-registration-surface--glass .dpo-registration-form h3,
+.admin-registration-surface--glass .dpo-registration-form h4,
+.admin-registration-surface--glass .dpo-registration-form h5,
+.admin-registration-surface--glass .dpo-registration-form h6,
+.admin-registration-surface--glass .dpo-registration-form label,
+.admin-registration-surface--glass .dpo-registration-form span {
+    color: var(--liquid-heading) !important;
+    text-shadow: none !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form p,
+.admin-registration-surface--glass .dpo-registration-form p,
+.admin-registration-surface--glass .summary-sidebar li.disabled,
+.admin-registration-surface--glass .dc-registration-form .text-gray-500,
+.admin-registration-surface--glass .dpo-registration-form .text-gray-500 {
+    color: var(--liquid-muted) !important;
+}
+
+.admin-registration-surface--glass .summary-sidebar li {
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: var(--liquid-border-strong) !important;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.admin-registration-surface--glass .summary-sidebar li:not(.disabled):hover,
+.admin-registration-surface--glass .summary-sidebar li.active {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.28)),
+        linear-gradient(90deg, rgba(11, 132, 238, 0.16), rgba(28, 92, 171, 0.12)) !important;
+    border-color: rgba(11, 132, 238, 0.42) !important;
+    color: var(--liquid-blue) !important;
+    box-shadow: 0 14px 28px rgba(28, 91, 142, 0.12), 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.admin-registration-surface--glass .summary-sidebar li:not(.disabled):hover a,
+.admin-registration-surface--glass .summary-sidebar li.active a {
+    color: var(--liquid-blue) !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-header,
+.admin-registration-surface--glass .dpo-registration-form__title,
+.admin-registration-surface--glass .dpo-registration-section-title,
+.admin-registration-surface--glass .dc-registration-form div[class~="bg-primary"][class~="text-white"],
+.admin-registration-surface--glass .complaint-handle-registration-form > label[class~="font-bold"][class~="block"],
+.admin-registration-surface--glass .complaint-handle-registration-form > div > label[class~="font-bold"][class~="block"],
+.admin-registration-surface--glass .dpo-registration-form__footer {
+    background: rgba(255, 255, 255, 0.14) !important;
+    border-color: rgba(255, 255, 255, 0.34) !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form div[class~="bg-primary"][class~="text-white"],
+.admin-registration-surface--glass .complaint-handle-registration-form > div[class~="bg-primary"][class~="text-white"] {
+    border-radius: 8px !important;
+    text-align: left;
+}
+
+.admin-registration-surface--glass .dc-registration-form div[class~="bg-primary"][class~="text-white"] label,
+.admin-registration-surface--glass .dpo-registration-form__title label,
+.admin-registration-surface--glass .dpo-registration-section-title label,
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-header h2,
+.admin-registration-surface--glass .complaint-handle-registration-form > label[class~="font-bold"][class~="block"],
+.admin-registration-surface--glass .complaint-handle-registration-form > div > label[class~="font-bold"][class~="block"] {
+    color: var(--liquid-heading) !important;
+}
+
+.admin-registration-surface--glass .dc-registration-form .form-input-item > input,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > textarea,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > .custom-select,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > select,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > div[class*="border-dark-950"],
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > input,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > textarea,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > .custom-select,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > select,
+.admin-registration-surface--glass .dpo-registration-form .dpo-registration-date-field,
+.admin-registration-surface--glass .dc-registration-form .input-radio,
+.admin-registration-surface--glass .dc-registration-form .input-checkbox,
+.admin-registration-surface--glass .dpo-registration-form .input-radio,
+.admin-registration-surface--glass .dpo-registration-form .input-checkbox,
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-body div[class~="border"][class~="p-2"][class~="rounded-md"],
+.admin-registration-surface--glass .dc-registration-form--standalone div[class~="border"][class~="p-2"][class~="rounded-md"],
+.admin-registration-surface--glass .dc-registration-form > .custom-card > .card-body div[class~="flex"][class~="items-center"][class~="gap-6"][class~="border"],
+.admin-registration-surface--glass .dc-registration-form--standalone div[class~="flex"][class~="items-center"][class~="gap-6"][class~="border"],
+.admin-registration-surface--glass .dpo-registration-upload-tile,
+.admin-registration-surface--glass .dc-registration-form div[class*="w-[160px]"][class*="h-[160px]"] {
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0.16)) !important;
+    border-color: var(--liquid-border-strong) !important;
+    color: var(--liquid-ink) !important;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset !important;
+    backdrop-filter: blur(32px) saturate(1.55);
+    -webkit-backdrop-filter: blur(32px) saturate(1.55);
+}
+
+.admin-registration-surface--glass .dc-registration-form .form-input-item > input:focus,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > textarea:focus,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > .custom-select:focus-within,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > select:focus,
+.admin-registration-surface--glass .dc-registration-form .form-input-item > div[class*="border-dark-950"]:focus-within,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > input:focus,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > textarea:focus,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > .custom-select:focus-within,
+.admin-registration-surface--glass .dpo-registration-form .form-input-item > select:focus,
+.admin-registration-surface--glass .dpo-registration-form .dpo-registration-date-field:focus-within {
+    background: rgba(255, 255, 255, 0.56) !important;
+    border-color: rgba(11, 132, 238, 0.56) !important;
+    box-shadow:
+        0 0 0 3px rgba(11, 132, 238, 0.12),
+        0 1px 0 rgba(255, 255, 255, 0.86) inset !important;
+}
+
+.admin-registration-surface--glass .react-datepicker-popper,
+.admin-registration-surface--glass .react-datepicker,
+.admin-registration-surface--glass .custom-select .input-select__menu {
+    background: rgba(247, 252, 255, 0.82) !important;
+    color: var(--liquid-ink) !important;
+    border-color: var(--liquid-border-strong) !important;
+    box-shadow: 0 24px 60px rgba(35, 70, 105, 0.22) !important;
+    backdrop-filter: blur(38px) saturate(1.65);
+    -webkit-backdrop-filter: blur(38px) saturate(1.65);
+}
+
+.admin-registration-surface--glass .react-datepicker__header,
+.admin-registration-surface--glass .react-datepicker__day:hover,
+.admin-registration-surface--glass .react-datepicker__day--selected {
+    background: rgba(255, 255, 255, 0.42) !important;
+}
+
+.admin-registration-surface--glass .react-datepicker__current-month,
+.admin-registration-surface--glass .react-datepicker__day-name,
+.admin-registration-surface--glass .react-datepicker__day,
+.admin-registration-surface--glass .custom-select .input-select__single-value,
+.admin-registration-surface--glass .custom-select .input-select__input-container,
+.admin-registration-surface--glass .custom-select .input-select__indicator,
+.admin-registration-surface--glass .custom-select .input-select__option {
+    color: var(--liquid-ink) !important;
+}
+
+.admin-registration-surface--glass .custom-select .input-select__option--is-focused,
+.admin-registration-surface--glass .custom-select .input-select__option--is-selected {
+    background: rgba(11, 132, 238, 0.16) !important;
+    color: var(--liquid-heading) !important;
+}
+
+.admin-dashboard-shell--glass .text-white,
+.admin-dashboard-shell--glass [class*="text-white/"],
+.front-liquid-shell .text-white,
+.public-liquid-shell .text-white,
+.auth-liquid-shell .text-white {
+    color: var(--liquid-heading) !important;
+}
+
+.admin-dashboard-shell--glass .liquid-button,
+.admin-dashboard-shell--glass button[class*="bg-primary"],
+.admin-dashboard-shell--glass button[class*="bg-secondary"],
+.admin-dashboard-shell--glass a[class*="bg-primary"],
+.admin-dashboard-shell--glass a[class*="bg-secondary"],
+.front-liquid-shell .liquid-button,
+.auth-liquid-shell .liquid-button {
+    color: #ffffff !important;
+}
+
+.admin-glass-page-header .text-white,
+.admin-glass-top-header .text-white,
+.admin-glass-page-header [class*="text-white/"],
+.admin-glass-top-header [class*="text-white/"] {
+    color: var(--liquid-heading) !important;
+}
+
+.admin-glass-page-header button,
+.admin-glass-top-header button,
+.front-glass-header button,
+.public-glass-header button {
+    backdrop-filter: blur(24px) saturate(1.55);
+    -webkit-backdrop-filter: blur(24px) saturate(1.55);
+}
+
+.table-main,
+.liquid-table {
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.12)) !important;
+}
+
+.table-main thead th {
+    background: rgba(255, 255, 255, 0.34) !important;
+}
+
+.table-main tbody tr,
+.table-main tbody tr[class*="bg-white"],
+.table-main tbody tr[class*="bg-secondary"] {
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.table-main tbody tr:hover {
+    background: rgba(255, 255, 255, 0.28) !important;
+}
+
+.rpv-default-layout__container,
+.rpv-core__viewer,
+.admin-registration-surface--glass .rpv-default-layout__container,
+.admin-registration-surface--glass .rpv-core__viewer {
+    border-radius: 8px;
+    box-shadow: 0 28px 70px rgba(35, 70, 105, 0.2);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .liquid-card,
+    .liquid-table,
+    .custom-card,
+    .db-card,
+    .table-main,
+    .glass-sidebar,
+    .admin-glass-sidebar,
+    .admin-glass-top-header,
+    .admin-glass-page-header,
+    .front-glass-header,
+    .public-glass-header {
+        background: rgba(255, 255, 255, 0.78) !important;
+    }
+}
+
+/* Pill-shaped front header */
+.front-glass-header {
+    border: 1px solid var(--liquid-border-strong) !important;
+    border-radius: 9999px !important;
+}
+
+.front-glass-header::before {
+    border-radius: inherit;
+}
+
+/* Pill-shaped action buttons inside the front header */
+.front-glass-header .liquid-button {
+    border-radius: 9999px !important;
+}
+
+/* Pill-shaped admin top header */
+.admin-glass-top-header {
+    border: 1px solid var(--liquid-border-strong) !important;
+    border-radius: 9999px !important;
+}
+
+.admin-glass-top-header::before {
+    border-radius: inherit;
+}
+
+/* Keep the glass overlay inside rounded panels */
+.dashboard-glass-panel::before {
+    border-radius: inherit;
+}
+
+/* ================================================================
+   Liquid Glass legibility sweep (admin)
+
+   The Liquid Glass pass renders the admin shell on a LIGHT surface,
+   but much of the admin markup still carries white-on-dark utility
+   classes from the original dark glass design. Earlier fixes patched
+   this per surface (.dashboard-glass-surface got white-text rules,
+   .admin-registration-surface--glass and .admin-entities-surface--glass
+   never did), so whole pages rendered white text on a near-white
+   surface. These rules are scoped to the shell instead of to one
+   surface, so every admin page is covered.
+   ================================================================ */
+
+/* 1. White text -> ink, anywhere inside the glass shell. */
+.admin-dashboard-shell--glass [class~="text-white"] {
+    color: var(--liquid-heading) !important;
+}
+
+.admin-dashboard-shell--glass [class*="text-white/"] {
+    color: var(--liquid-muted) !important;
+}
+
+/* 2. Pale accent text that was picked for a dark surface. */
+.admin-dashboard-shell--glass [class~="text-[#67c4ff]"],
+.admin-dashboard-shell--glass [class~="text-[#b9e3ff]"] {
+    color: var(--liquid-blue) !important;
+}
+
+/*    Darker steps than --liquid-amber/--liquid-mint/--liquid-rose: those are
+      mark colours and land near 2.2:1 as text on the light glass surface. */
+.admin-dashboard-shell--glass [class~="text-[#ffb25c]"] {
+    color: #a35f00 !important;
+}
+
+.admin-dashboard-shell--glass [class~="text-[#66e19b]"] {
+    color: #0f7a4d !important;
+}
+
+.admin-dashboard-shell--glass [class~="text-[#b8b0ff]"] {
+    color: #0b84ee !important;
+}
+
+.admin-dashboard-shell--glass [class~="text-[#ff8b84]"] {
+    color: #c02d2d !important;
+}
+
+/* 3. ...but keep white text where the element really does sit on a
+      coloured fill. Exact-token matching so bg-primary/10 is excluded. */
+.admin-dashboard-shell--glass [class~="bg-primary"]:not(th):not(.segmented-toggle),
+.admin-dashboard-shell--glass [class~="bg-primary"]:not(.segmented-toggle) [class~="text-white"]:not(th),
+.admin-dashboard-shell--glass [class~="bg-primary"]:not(.segmented-toggle) [class*="text-white/"]:not(th),
+.admin-dashboard-shell--glass [class~="bg-secondary"],
+.admin-dashboard-shell--glass [class~="bg-secondary"] [class~="text-white"],
+.admin-dashboard-shell--glass [class~="bg-secondary"] [class*="text-white/"],
+.admin-dashboard-shell--glass [class~="bg-green"],
+.admin-dashboard-shell--glass [class~="bg-dark-950"],
+.admin-dashboard-shell--glass .liquid-button--primary,
+.admin-dashboard-shell--glass .liquid-button--primary [class~="text-white"],
+.admin-dashboard-shell--glass .liquid-button--secondary,
+.admin-dashboard-shell--glass .liquid-button--secondary [class~="text-white"] {
+    color: #ffffff !important;
+}
+
+/* 4. Outline buttons were white-on-white: .liquid-button--outline is a
+      near-white fill, while the shell rule paints every .liquid-button
+      white. Applies to every liquid shell, not just admin. */
+.admin-dashboard-shell--glass .liquid-button--outline,
+.front-liquid-shell .liquid-button--outline,
+.public-liquid-shell .liquid-button--outline,
+.auth-liquid-shell .liquid-button--outline {
+    color: var(--liquid-heading) !important;
+}
+
+/* 5. Selected pill / tab state. Markup marks the active item with
+      `bg-white text-primary`, but .liquid-button--primary's !important
+      gradient beat it, so the selection was invisible. */
+.liquid-button[class~="bg-white"] {
+    background: #ffffff !important;
+    color: var(--liquid-blue, #0b84ee) !important;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12) !important;
+}
+
+/* 6. White hairlines and rings -> the light-glass border token. */
+.admin-dashboard-shell--glass [class*="border-white/"],
+.admin-dashboard-shell--glass [class*="ring-white/"] {
+    border-color: var(--liquid-border-strong) !important;
+}
+
+.admin-dashboard-shell--glass [class*="ring-white/"] {
+    --tw-ring-color: var(--liquid-border-strong) !important;
+}
+
+.admin-dashboard-shell--glass [class*="divide-white/"] > * + * {
+    border-color: var(--liquid-border-strong) !important;
+}
+
+/* 7. Faint white tints used as tracks/containers need a visible edge on
+      a light surface. Exact-token matching leaves hover: variants alone. */
+.admin-dashboard-shell--glass [class~="bg-white/5"],
+.admin-dashboard-shell--glass [class~="bg-white/8"],
+.admin-dashboard-shell--glass [class~="bg-white/10"],
+.admin-dashboard-shell--glass [class~="bg-white/12"],
+.admin-dashboard-shell--glass [class~="bg-white/15"] {
+    background-color: rgba(255, 255, 255, 0.55) !important;
+    box-shadow: inset 0 0 0 1px var(--liquid-border-strong);
+}
+
+/* ================================================================
+   Admin Liquid Glass v2
+
+   The glass pass left the plane carrying three competing colour
+   blobs (blue / mint / amber) while panels stayed 12-34% opaque, so
+   content floated on a green wash instead of sitting on a surface.
+   v2 keeps the glass character but: one cool low-saturation plane,
+   and panels/tables opaque enough to actually read.
+   ================================================================ */
+
+.admin-dashboard-shell--glass::before {
+    background:
+        radial-gradient(circle at 12% 8%, rgba(61, 149, 235, 0.16), transparent 34%),
+        radial-gradient(circle at 90% 6%, rgba(96, 165, 240, 0.11), transparent 32%),
+        linear-gradient(163deg, #f3f8fd 0%, #e9f1f9 48%, #f0f5fb 100%) !important;
+}
+
+.admin-dashboard-shell--glass::after {
+    display: none !important;
+}
+
+/* A whisper of sheen on the content plane - not a second colour wash. */
+.admin-dashboard-shell--glass .liquid-content-part::before,
+.admin-dashboard-shell--glass .admin-registration-content::before,
+.admin-dashboard-shell--glass .dashboard-glass-content::before,
+.admin-dashboard-shell--glass .admin-entities-content::before {
+    background: linear-gradient(150deg, rgba(255, 255, 255, 0.4), transparent 42%) !important;
+}
+
+/* ---- Tables: a real surface ---- */
+.admin-dashboard-shell--glass .table-main,
+.admin-dashboard-shell--glass .liquid-table {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(119, 168, 211, 0.36) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 18px 44px rgba(19, 58, 94, 0.1) !important;
+    overflow: hidden;
+}
+
+.admin-dashboard-shell--glass .table-main .table-responsive {
+    border-radius: 16px 16px 0 0 !important;
+}
+
+.admin-dashboard-shell--glass .table-main thead th {
+    background: #eaf2fb !important;
+    color: #0b2136 !important;
+    border-color: rgba(119, 168, 211, 0.26) !important;
+    border-top: 0 !important;
+    font-weight: 600 !important;
+    white-space: nowrap;
+}
+
+.admin-dashboard-shell--glass .table-main thead th:last-child {
+    border-inline-end: 0 !important;
+}
+
+.admin-dashboard-shell--glass .table-main tbody tr,
+.admin-dashboard-shell--glass .table-main tbody tr[class*="bg-white"],
+.admin-dashboard-shell--glass .table-main tbody tr[class*="bg-secondary"] {
+    background: transparent !important;
+    transition: background-color 160ms ease;
+}
+
+.admin-dashboard-shell--glass .table-main tbody tr:nth-child(even) {
+    background: rgba(234, 242, 251, 0.5) !important;
+}
+
+.admin-dashboard-shell--glass .table-main tbody tr:hover {
+    background: rgba(11, 132, 238, 0.08) !important;
+}
+
+/* The teal grid lines fought the layout - one hairline per row instead. */
+.admin-dashboard-shell--glass .table-main tbody td {
+    background: transparent !important;
+    border-top: 1px solid rgba(119, 168, 211, 0.2) !important;
+    border-inline-end: 0 !important;
+    color: #16283c !important;
+}
+
+/* ---- Table footer / pagination ---- */
+.admin-dashboard-shell--glass .table-main > div[class*="bg-white"],
+.admin-dashboard-shell--glass .table-main > div[class*="border-t"] {
+    background: #f7fafd !important;
+    border-color: rgba(119, 168, 211, 0.26) !important;
+}
+
+.admin-dashboard-shell--glass .table-main p[class*="text-gray-700"],
+.admin-dashboard-shell--glass [class~="text-gray-700"],
+.admin-dashboard-shell--glass [class~="text-gray-500"] {
+    color: #43566f !important;
+}
+
+.admin-dashboard-shell--glass .table-main nav button {
+    background: #ffffff !important;
+    border-color: rgba(119, 168, 211, 0.36) !important;
+    color: #43566f !important;
+}
+
+.admin-dashboard-shell--glass .table-main nav button:hover:not(:disabled) {
+    background: #eaf2fb !important;
+    color: #0b2136 !important;
+}
+
+/* ---- Search field ---- */
+.admin-dashboard-shell--glass .search-box .form-input-item > div,
+.admin-dashboard-shell--glass .search-box .form-input-item > input {
+    background: rgba(255, 255, 255, 0.92) !important;
+    border: 1px solid rgba(119, 168, 211, 0.38) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 10px 26px rgba(19, 58, 94, 0.07) !important;
+    color: #16283c !important;
+}
+
+.admin-dashboard-shell--glass .search-box input::placeholder {
+    color: #7d8ea3 !important;
+    opacity: 1 !important;
+}
+
+.admin-dashboard-shell--glass .search-box input {
+    color: #16283c !important;
+}
+
+/* ---- Quick-nav segmented control (page header tabs) ---- */
+.admin-dashboard-shell--glass .header-menu-list ul {
+    background: rgba(255, 255, 255, 0.72) !important;
+    border: 1px solid rgba(119, 168, 211, 0.34) !important;
+    box-shadow: 0 10px 26px rgba(19, 58, 94, 0.08) !important;
+}
+
+.admin-dashboard-shell--glass .header-menu-list button {
+    color: #43566f !important;
+}
+
+.admin-dashboard-shell--glass .header-menu-list button:hover {
+    background: rgba(11, 132, 238, 0.1) !important;
+    color: #0b2136 !important;
+}
+
+.admin-dashboard-shell--glass .header-menu-list button[aria-current="true"] {
+    background: linear-gradient(135deg, #0b84ee, #12a8a0) !important;
+    box-shadow: 0 10px 22px rgba(11, 132, 238, 0.28) !important;
+    color: #ffffff !important;
+}
+
+/* ================================================================
+   White theme: monochrome navigation
+
+   The White theme was borrowing the Liquid Glass brand hues (the
+   blue/teal `bg-primary` track and `--liquid-blue` active text) for
+   its quick nav and segmented toggles. In the White theme those
+   controls are black and white.
+   ================================================================ */
+
+/* Quick nav (page-header tab bar) */
+.admin-dashboard-shell--white .header-menu-list ul {
+    background: #111827 !important;
+    border: 1px solid #111827 !important;
+    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.16) !important;
+}
+
+.admin-dashboard-shell--white .header-menu-list button {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.admin-dashboard-shell--white .header-menu-list button:hover {
+    background: rgba(255, 255, 255, 0.14) !important;
+    color: #ffffff !important;
+}
+
+.admin-dashboard-shell--white .header-menu-list button[aria-current="true"] {
+    background: #ffffff !important;
+    color: #111827 !important;
+    box-shadow: 0 6px 16px rgba(17, 24, 39, 0.24) !important;
+}
+
+/* Segmented toggles (List/Register, Admin Side/Client Side) */
+.admin-dashboard-shell--white .segmented-toggle {
+    background: #111827 !important;
+    border: 1px solid #111827 !important;
+    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.16) !important;
+}
+
+.admin-dashboard-shell--white .segmented-toggle .liquid-button {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.admin-dashboard-shell--white .segmented-toggle .liquid-button:hover {
+    background: rgba(255, 255, 255, 0.14) !important;
+    color: #ffffff !important;
+    transform: none;
+}
+
+.admin-dashboard-shell--white .segmented-toggle .liquid-button[class~="bg-white"] {
+    background: #ffffff !important;
+    color: #111827 !important;
+    box-shadow: 0 6px 16px rgba(17, 24, 39, 0.24) !important;
+}
+
+/* The generic active-pill rule uses --liquid-blue; keep that for the
+   glass shell only, so the White theme stays monochrome. */
+.admin-dashboard-shell--white .liquid-button[class~="bg-white"] {
+    color: #111827 !important;
+}
+
+/* ================================================================
+   Page header: no surface of its own
+
+   The page header (quick nav + List/Register) sat on its own panel -
+   a white bar in the White theme, a glass slab in Liquid Glass. It
+   now floats directly on the page plane; the segmented controls
+   carry their own surfaces.
+   ================================================================ */
+.admin-glass-page-header,
+.admin-dashboard-shell--glass .admin-glass-page-header,
+.admin-dashboard-shell--white .header-main {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.admin-glass-page-header::before {
+    display: none !important;
+}
+
+/* ================================================================
+   Sidebar active/hover highlight: brand blue, not indigo
+
+   The base rule painted the current page indigo (#4f5eff). The blue
+   override only reached .admin-glass-sidebar and the front shell, so
+   the White theme's sidebar kept the indigo. Blue in every theme.
+   ================================================================ */
+.glass-sidebar .sidebar-nav-item:hover,
+.glass-sidebar .sidebar-nav-item.active,
+.glass-sidebar .sidebar-nav-item:has(> a.active),
+.glass-sidebar .sidebar-nav-item:has(> button.active),
+.admin-white-sidebar .sidebar-nav-item:hover,
+.admin-white-sidebar .sidebar-nav-item.active,
+.admin-white-sidebar .sidebar-nav-item:has(> a.active),
+.admin-white-sidebar .sidebar-nav-item:has(> button.active) {
+    background: rgba(232, 243, 255, 0.95) !important;
+    box-shadow: inset 0 0 0 1px rgba(11, 132, 238, 0.18) !important;
+    color: var(--liquid-blue, #0b84ee) !important;
+}
+
+.glass-sidebar .sidebar-nav-item:hover > a,
+.glass-sidebar .sidebar-nav-item:hover > button,
+.glass-sidebar .sidebar-nav-item.active > a,
+.glass-sidebar .sidebar-nav-item.active > button,
+.glass-sidebar .sidebar-nav-item > a.active,
+.glass-sidebar .sidebar-nav-item > button.active,
+.glass-sidebar .sidebar-nav-item:hover .ms-auto,
+.glass-sidebar .sidebar-nav-item.active .ms-auto,
+.glass-sidebar .sidebar-nav-item:has(> a.active) .ms-auto,
+.glass-sidebar .sidebar-nav-item:has(> button.active) .ms-auto {
+    color: var(--liquid-blue, #0b84ee) !important;
+}
+
+/* ================================================================
+   Form controls on the light glass surface
+
+   Placeholders, select values and dropdown menus were still styled
+   for the original dark glass: white text and a near-black menu.
+   On the light surface the placeholders were invisible ("Search
+   Items...", "Select Role") and the menus fought the rest of the UI.
+   These selectors mirror the originals so they win on specificity.
+   ================================================================ */
+
+/* Field text + placeholder */
+.admin-dashboard-shell--glass input,
+.admin-dashboard-shell--glass textarea,
+.admin-dashboard-shell--glass .custom-select .input-select__single-value,
+.admin-dashboard-shell--glass .custom-select .input-select__input-container,
+.admin-dashboard-shell--glass .custom-select .input-select__input,
+.admin-registration-surface--glass .custom-select .input-select__single-value,
+.admin-registration-surface--glass .custom-select .input-select__input-container {
+    color: var(--liquid-ink) !important;
+}
+
+.admin-dashboard-shell--glass input::placeholder,
+.admin-dashboard-shell--glass textarea::placeholder,
+.admin-dashboard-shell--glass .input-select__placeholder,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) input::placeholder,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) textarea::placeholder,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .input-select__placeholder,
+.admin-registration-surface--glass .search-box input::placeholder {
+    color: #7d8ea3 !important;
+    opacity: 1 !important;
+}
+
+/* Field surface */
+.admin-dashboard-shell--glass .form-input-item > input,
+.admin-dashboard-shell--glass .form-input-item > textarea,
+.admin-dashboard-shell--glass .form-input-item > div,
+.admin-dashboard-shell--glass .custom-select .input-select__control {
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-color: rgba(119, 168, 211, 0.38) !important;
+    color: var(--liquid-ink) !important;
+}
+
+/* Dropdown menu: light, to match everything around it */
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) .custom-select .input-select__menu,
+.admin-dashboard-shell--glass .admin-content-part:not(.dashboard-glass-surface):not(.admin-registration-surface--glass):not(.admin-entities-surface--glass) [role="listbox"],
+.admin-registration-surface--glass .custom-select .input-select__menu,
+.admin-dashboard-shell--glass .custom-select .input-select__menu,
+.admin-dashboard-shell--glass [role="listbox"] {
+    background: rgba(255, 255, 255, 0.98) !important;
+    border: 1px solid rgba(119, 168, 211, 0.34) !important;
+    box-shadow: 0 18px 44px rgba(19, 58, 94, 0.14) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-dashboard-shell--glass .input-select__option,
+.admin-registration-surface--glass .custom-select .input-select__option {
+    background: transparent !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-dashboard-shell--glass .input-select__option--is-focused,
+.admin-dashboard-shell--glass .input-select__option:hover {
+    background: rgba(11, 132, 238, 0.1) !important;
+    color: #0b2136 !important;
+}
+
+.admin-dashboard-shell--glass .input-select__option--is-selected {
+    background: rgba(11, 132, 238, 0.16) !important;
+    color: #0b2136 !important;
+}
+
+/* The search icon sat at the same value as the placeholder */
+.admin-dashboard-shell--glass .search-box svg,
+.admin-dashboard-shell--glass .input-icon svg {
+    color: #7d8ea3 !important;
+}
+
+/* ================================================================
+   Light-surface enforcement for the whole glass shell
+
+   Lines ~968-1500 are the original dark-glass rules for the
+   registration / entities surfaces. They use up to four class units,
+   so they out-specify every light-theme rule added later regardless
+   of order - which is why table body text, form labels and card text
+   were still white on those pages. The repeated-class prefix below
+   raises specificity above them so the light treatment is
+   authoritative shell-wide, not page by page.
+   ================================================================ */
+
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .admin-content-part,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .admin-content-part p,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .admin-content-part li,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .admin-content-part a,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .admin-content-part label,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .admin-content-part h1,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .admin-content-part h2,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .admin-content-part h3,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .admin-content-part h4,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .admin-content-part h5,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .admin-content-part h6,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .table-main,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .table-main table,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .table-main td,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .table-main p,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .dpo-card p,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .dpo-card label,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .summary-sidebar li,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .summary-sidebar a,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .dc-registration-form,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .dc-registration-form p,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .dc-registration-form span,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .dc-registration-form label,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .dc-registration-form td,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .dc-registration-form th,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .dpo-registration-form,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .dpo-registration-form p,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .dpo-registration-form span,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .dpo-registration-form label {
+    color: var(--liquid-ink) !important;
+}
+
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .admin-content-part h1,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .admin-content-part h2,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .admin-content-part h3,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .summary-sidebar h3 {
+    color: var(--liquid-heading) !important;
+}
+
+/* Tables */
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .table-main thead th {
+    background: #eaf2fb !important;
+    border-color: rgba(119, 168, 211, 0.26) !important;
+    color: #0b2136 !important;
+}
+
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .table-main tbody td {
+    border-top: 1px solid rgba(119, 168, 211, 0.2) !important;
+    border-inline-end: 0 !important;
+    color: #16283c !important;
+}
+
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .table-main > div[class*="border-t"] {
+    background: #f7fafd !important;
+    border-color: rgba(119, 168, 211, 0.26) !important;
+}
+
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .table-main nav button {
+    background: #ffffff !important;
+    border-color: rgba(119, 168, 211, 0.36) !important;
+    color: #43566f !important;
+}
+
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .table-main nav button:disabled {
+    background: linear-gradient(135deg, rgba(11, 132, 238, 0.94), rgba(28, 92, 171, 0.9)) !important;
+    color: #ffffff !important;
+}
+
+/* Fields */
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .form-input-item > input,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .form-input-item > textarea,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .form-input-item > select,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .form-input-item > div,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .search-box .form-input-item > div,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .table-main select,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .custom-select .input-select__control {
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-color: rgba(119, 168, 211, 0.38) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass input::placeholder,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass textarea::placeholder,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .input-select__placeholder {
+    color: #7d8ea3 !important;
+    opacity: 1 !important;
+}
+
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .search-box svg {
+    color: #7d8ea3 !important;
+}
+
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .custom-select .input-select__single-value,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .custom-select .input-select__input-container,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .custom-select .input-select__option {
+    color: var(--liquid-ink) !important;
+}
+
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .custom-select .input-select__menu,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass [role="listbox"] {
+    background: rgba(255, 255, 255, 0.98) !important;
+    border-color: rgba(119, 168, 211, 0.34) !important;
+    color: var(--liquid-ink) !important;
+}
+
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .summary-sidebar li.active,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .summary-sidebar li:not(.disabled):hover,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .summary-sidebar li.active a,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .summary-sidebar li:not(.disabled):hover a {
+    color: var(--liquid-blue) !important;
+}
+
+/* Re-assert white where the element really is on a coloured fill.
+   Doubled attribute selector so this outranks the ink sweep above. */
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass [class~="bg-primary"][class~="bg-primary"]:not(th):not(.segmented-toggle),
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass [class~="bg-primary"][class~="bg-primary"]:not(.segmented-toggle) *:not(th),
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass [class~="bg-secondary"][class~="bg-secondary"],
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass [class~="bg-secondary"][class~="bg-secondary"] *,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .liquid-button--primary.liquid-button--primary,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .liquid-button--primary.liquid-button--primary *,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .liquid-button--secondary.liquid-button--secondary,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .liquid-button--secondary.liquid-button--secondary * {
+    color: #ffffff !important;
+}
+
+/* ================================================================
+   Government emblem watermark in Liquid Glass
+
+   The White theme shows it via AdminContentPart's inline background;
+   the glass pass set background-image:none on those surfaces, so it
+   disappeared. Re-added as a pseudo-element so it survives the
+   background resets.
+   ================================================================ */
+.admin-dashboard-shell--glass .admin-content-part {
+    position: relative;
+}
+
+.admin-dashboard-shell--glass .admin-content-part::after {
+    background-image: url("/assets/images/logo/secondary-logo.webp");
+    background-position: center 46%;
+    background-repeat: no-repeat;
+    background-size: min(520px, 46%);
+    content: "";
+    display: block !important;
+    inset: 0;
+    opacity: 0.06;
+    pointer-events: none;
+    position: absolute;
+    z-index: 0;
+}
+
+/* ================================================================
+   Segmented toggles in Liquid Glass
+
+   The active item carried `bg-white/18 text-white`, but the shell's
+   `.liquid-button { color: var(--liquid-ink) }` rule won on order - white label on
+   a white pill, so the selected option ("List") read as blank. The
+   inactive items also kept the primary gradient, which made the
+   unselected option louder than the selected one.
+   ================================================================ */
+.admin-dashboard-shell--glass .segmented-toggle {
+    background: rgba(255, 255, 255, 0.62) !important;
+    border: 1px solid var(--liquid-border-strong) !important;
+    box-shadow: 0 10px 24px rgba(19, 58, 94, 0.08) !important;
+}
+
+.admin-dashboard-shell--glass .segmented-toggle .liquid-button {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    color: #0b2136 !important;
+}
+
+.admin-dashboard-shell--glass .segmented-toggle .liquid-button:hover {
+    background: rgba(11, 132, 238, 0.1) !important;
+    color: #0b2136 !important;
+    transform: none;
+}
+
+.admin-dashboard-shell--glass .segmented-toggle .liquid-button[class~="bg-white"],
+.admin-dashboard-shell--glass .segmented-toggle .liquid-button[class*="bg-white/"] {
+    background: linear-gradient(135deg, rgba(11, 132, 238, 0.98), rgba(28, 92, 171, 0.94)) !important;
+    color: #ffffff !important;
+    box-shadow: 0 10px 22px rgba(11, 132, 238, 0.28) !important;
+}
+
+/* ================================================================
+   Table headers & segmented toggles in Liquid Glass
+
+   Both carry `bg-primary text-white` in the markup, but their painted
+   background is overridden to a light surface - so the white label
+   was invisible (Entities / DPO / User Registration headers, and the
+   List/Register + Admin Side/Client Side toggles).
+   ================================================================ */
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .table-main thead th,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass table thead th,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass thead th[class~="bg-primary"],
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass thead th[class~="text-white"] {
+    background: #eaf2fb !important;
+    color: #0b2136 !important;
+    border-color: rgba(119, 168, 211, 0.26) !important;
+    font-weight: 600 !important;
+}
+
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle {
+    background: rgba(255, 255, 255, 0.62) !important;
+    border: 1px solid var(--liquid-border-strong) !important;
+    box-shadow: 0 10px 24px rgba(19, 58, 94, 0.08) !important;
+}
+
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle .liquid-button,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle button {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    color: #0b2136 !important;
+}
+
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle .liquid-button:hover,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle button:hover {
+    background: rgba(11, 132, 238, 0.1) !important;
+    color: #0b2136 !important;
+    transform: none;
+}
+
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle .liquid-button[class~="bg-white"],
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle .liquid-button[class*="bg-white/"],
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle button[class~="bg-white"],
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle button[class*="bg-white/"] {
+    background: linear-gradient(135deg, rgba(11, 132, 238, 0.98), rgba(28, 92, 171, 0.94)) !important;
+    color: #ffffff !important;
+    box-shadow: 0 10px 22px rgba(11, 132, 238, 0.28) !important;
+}
+
+/* ================================================================
+   Segmented toggle labels - final authority
+
+   The inactive buttons are .liquid-button--primary, and the
+   "keep white on coloured fills" rule matches that class at (0,5,0),
+   which outranked the earlier .segmented-toggle rules at (0,4,0) -
+   so "Register" / "Client Side" rendered white on the light track.
+   Doubling the class names lifts these to (0,7,0) so nothing else
+   can win.
+   ================================================================ */
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle.segmented-toggle .liquid-button.liquid-button,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle.segmented-toggle button.liquid-button.liquid-button,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle.segmented-toggle .liquid-button.liquid-button *,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle.segmented-toggle button:not(.is-active),
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle.segmented-toggle button:not(.is-active) * {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    color: #0b2136 !important;
+}
+
+.admin-dashboard-shell--glass .segmented-toggle.segmented-toggle .liquid-button.liquid-button:hover {
+    background: rgba(11, 132, 238, 0.1) !important;
+    color: #0b2136 !important;
+    transform: none;
+}
+
+.admin-dashboard-shell--glass .segmented-toggle.segmented-toggle .liquid-button.liquid-button[class~="bg-white"],
+.admin-dashboard-shell--glass .segmented-toggle.segmented-toggle .liquid-button.liquid-button[class*="bg-white/"],
+.admin-dashboard-shell--glass .segmented-toggle.segmented-toggle .liquid-button.liquid-button[class~="bg-white"] * {
+    background: rgba(11, 132, 238, 0.16) !important;
+    color: #0b2136 !important;
+    box-shadow:
+        inset 0 0 0 1.5px #0b84ee,
+        0 6px 16px rgba(11, 132, 238, 0.2) !important;
+}
+
+.admin-dashboard-shell--white .segmented-toggle.segmented-toggle .liquid-button.liquid-button {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.admin-dashboard-shell--white .segmented-toggle.segmented-toggle .liquid-button.liquid-button[class~="bg-white"] {
+    background: #ffffff !important;
+    color: #111827 !important;
+    box-shadow: 0 6px 16px rgba(17, 24, 39, 0.24) !important;
+}
+
+/* ================================================================
+   Segmented toggle buttons (.segmented-btn)
+
+   These used to be <PrimaryButton>, which carries .liquid-button
+   --primary and with it the gradient + white-text rules - the reason
+   the unselected label kept rendering white on a light track no
+   matter how many overrides were added. They are now plain buttons
+   with no competing classes, so this styles them outright.
+   ================================================================ */
+.segmented-btn {
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
+    padding: 0.375rem 1.15rem;
+    transition:
+        background-color 180ms ease,
+        color 180ms ease,
+        box-shadow 180ms ease;
+    white-space: nowrap;
+}
+
+/* Liquid Glass: light track, slate label, blue pill when selected */
+.admin-dashboard-shell--glass .segmented-btn {
+    background: transparent !important;
+    color: #0b2136 !important;
+}
+
+/* Resting state, at maximum specificity. The hover and selected states pick up
+   an extra selector unit, which is why they went black while the resting label
+   stayed white - this matches the resting state at the same weight. */
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle.segmented-toggle,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle.segmented-toggle .segmented-btn.segmented-btn,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle.segmented-toggle .segmented-btn.segmented-btn *,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle.segmented-toggle button,
+.admin-dashboard-shell--glass.admin-dashboard-shell--glass.admin-dashboard-shell--glass .segmented-toggle.segmented-toggle button * {
+    color: #0b2136 !important;
+}
+
+.admin-dashboard-shell--glass .segmented-btn:hover {
+    background: rgba(11, 132, 238, 0.1) !important;
+    color: #0b2136 !important;
+}
+
+.admin-dashboard-shell--glass .segmented-btn:focus-visible {
+    outline: 2px solid #0b84ee;
+    outline-offset: 2px;
+}
+
+/* Selected: a blue effect, not a blue fill - the label stays black so both
+   options are readable at all times. */
+.admin-dashboard-shell--glass .segmented-btn.is-active {
+    background: rgba(11, 132, 238, 0.16) !important;
+    box-shadow:
+        inset 0 0 0 1.5px #0b84ee,
+        0 6px 16px rgba(11, 132, 238, 0.2) !important;
+    color: #0b2136 !important;
+    font-weight: 600;
+}
+
+/* White theme: dark track, monochrome */
+.admin-dashboard-shell--white .segmented-btn {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.admin-dashboard-shell--white .segmented-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+}
+
+.admin-dashboard-shell--white .segmented-btn.is-active {
+    background: #ffffff;
+    box-shadow: 0 6px 16px rgba(17, 24, 39, 0.24);
+    color: #111827;
+}

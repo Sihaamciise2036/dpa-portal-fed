@@ -1,0 +1,10 @@
+export const AUTH_REGISTER = "AUTH_REGISTER";
+export const AUTH_LOGIN = "AUTH_LOGIN";
+export const AUTH_CHECK = "AUTH_CHECK";
+export const AUTH_LOGOUT = "AUTH_LOGOUT";
+export const AUTH_FORGOT = "AUTH_FORGOT";
+export const AUTH_RESET = "AUTH_RESET";
+export const SET_USERDATA = "SET_USERDATA";
+export const AUTH_VERIFY_TOKEN = "AUTH_VERIFY_TOKEN";
+export const GENERAL_SETTING = "GENERAL_SETTING";
+export const DEVICE_TOKEN = "DEVICE_TOKEN";
